@@ -11,14 +11,15 @@ class MatchesController < ApplicationController
   # GET /lists/1.json
   def show
     @match = Match.find(params[:id])
+    @users = @match.users
   end
 
   # POST /lists
   # POST /lists.json
   def create
     @match = Match.new(match_params)
-
-    if @list.save
+    current_user.matches << @match
+    if @match.save
       render :show, status: :created, location: @match
     else
       render json: @match.errors, status: :unprocessable_entity
