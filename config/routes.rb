@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "/login", :to => "users/sessions#new", :as => :login
     get "/signup", :to => "users/registrations#new", :as => :signup
     get "/logout", :to => "users/sessions#destroy", :as => :logout
+    get '*path', to: 'users/sessions#new'
   end
   resources :users
   resources :matches
