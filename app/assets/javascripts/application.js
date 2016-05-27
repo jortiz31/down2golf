@@ -2,6 +2,10 @@
 * app/assets/javascripts/application.js
 */
 
+//= require jquery
+//= require foundation
+//= require foundation.min
+//= require what-input
 //= require angular
 //= require angular-route
 //

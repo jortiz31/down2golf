@@ -10,10 +10,46 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
+    <nav role="navigation">
+      <ul id="menu" class="overlay-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li>
+          <form class="menu-form" action="index.html" method="post">
+            <div class="row">
+              <div class="large-6 medium-6 small-6 small-centered medium-centered large-centered columns">
+                <input type="text" placeholder="Username">
+
+
+                <input type="password" placeholder="Password" aria-describedby="passwordHelpText">
+
+                <button type="button" class="small expanded button" name="button">Log In</button>
+              </div>
+            </div>
+          </form>
+        </li>
+      </ul>
+      <a class="toggle-menu" href="#menu"><i class="fi-plus"></i></a>
+    </nav>
+
+
+
+
+
+
+
+
+
 
     <%= yield %>
 
+    <script>
+    $(".toggle-menu").on("click", function(){
+      $("#menu").toggleClass("is-open");
+    });
+    </script>
+
   </body>
-</html>
+  </html>
