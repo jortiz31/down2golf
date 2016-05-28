@@ -1,3 +1,4 @@
+
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 angular
@@ -10,6 +11,10 @@ function CoursesController(   CoursesService,   $location  ) {
   console.log('CoursesController is live');
   vm.courses = [];
   vm.newCourseName = '';
+  vm.newCourseUrl = '';
+  vm.newCourseImage = '';
+  vm.newCourePrice = '';
+  vm.newCourseLocation = '';
   vm.deleteCourse = deleteCourse;
   vm.createCourse = createCourse;
   vm.showCourse = showCourse;
@@ -41,7 +46,7 @@ function CoursesController(   CoursesService,   $location  ) {
   function createCourse() {
     console.log('create with', vm.newCourseName);
     if(vm.newCourseName.length > 1) {
-      CoursesService.save({name: vm.newCourseName}, handleCreateSuccess);
+      CoursesService.save({name: vm.newCourseName, location: vm.newCourseLocation, url:vm.newCourseUrl, price:vm.newCoursePrice, image:vm.newCourseImage}, handleCreateSuccess);
       vm.newCourseName = '';
     }
   }

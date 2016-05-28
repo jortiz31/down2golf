@@ -1,0 +1,56 @@
+<!-- header -->
+<div class="well">
+  <div class="container">
+    <div class="page-header">
+      <h1>Down2Golf</h1>
+    </div>
+  </div>
+</div>
+
+<!-- page content -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+
+      <!-- new list form-->
+      <form class="form-inline" ng-submit="coursesCtrl.createCourse()">
+        <div class="form-group">
+          <input ng-model="coursesCtrl.newCourseName" type="text" name="name" class="form-control" placeholder="Name" autofocus>
+          <input ng-model="coursesCtrl.newCourseLocation" type="text" name="location" class="form-control" placeholder="Location" autofocus>
+          <input ng-model="coursesCtrl.newCoursePrice" type="text" name="price" class="form-control" placeholder="Price" autofocus>
+          <input ng-model="coursesCtrl.newCourseUrl" type="text" name="url" class="form-control" placeholder="Url" autofocus>
+          <input ng-model="coursesCtrl.newCourseImage" type="text" name="image" class="form-control" placeholder="Image" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" value="Create Course">
+        </div>
+      </form>
+      <br>
+
+      <!-- list of lists -->
+      <ul class="list-group">
+
+
+        <li class="list-group-item" ng-repeat="course in coursesCtrl.courses" ng-click="coursesCtrl.showCourse(course)">
+
+          <!--  description -->
+            {{course.name}}
+            {{course.location}}
+            {{course.url}}
+            {{course.image}}
+            {{course.price}}
+
+          <div class="pull-right">
+            <!-- trash can icon to delete todo -->
+             <a ng-click="coursesCtrl.deleteCourse(course, $event);">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>

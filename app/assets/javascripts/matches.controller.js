@@ -9,7 +9,7 @@ function MatchesController(   MatchesService,   $location  ) {
   var vm = this;
   console.log('MatchesController is live');
   vm.matches = [];
-  vm.newMatchName = '';
+  vm.newMatchTitle = '';
   vm.deleteMatch = deleteMatch;
   vm.createMatch = createMatch;
   vm.showMatch = showMatch;
@@ -41,7 +41,7 @@ function MatchesController(   MatchesService,   $location  ) {
   function createMatch() {
     console.log('create with', vm.newMatchName);
     if(vm.newMatchName.length > 1) {
-      MatchesService.save({name: vm.newMatchName}, handleCreateSuccess);
+      MatchesService.save({title: vm.newMatchTitle}, handleCreateSuccess);
       vm.newMatchName = '';
     }
   }
