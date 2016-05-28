@@ -11,7 +11,7 @@ angular.module('Down2GolfApp')
       'remove': 'DELETE /items/:id',
       'update': 'PUT /items/:id' };
     */
-    resource = $resource('/api/matches/:id', {matchId: '@id'},{
+    resource = $resource('/api/matches/:matchId', {matchId: '@matchId'},{
         update: {
           method: 'PUT' // this method issues a PUT request
         },
