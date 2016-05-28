@@ -1,1 +1,1 @@
-json.extract! @match, :title, :timeanddate, :course_id
+json.extract! @match, :title, :timeanddate, :course

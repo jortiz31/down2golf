@@ -1,1 +1,74 @@
-hello WOlrd!
+<!-- header -->
+<div class="well">
+  <div class="container">
+    <div class="page-header">
+      <h1>Listly <span class='small'>- viewing list: "{{matchCtrl.match.title}}"</span></h1>
+    </div>
+  </div>
+</div>
+
+<!-- page content -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+
+      <!-- new list form-->
+      <form class="form-inline" ng-submit="matchCtrl.createMatch()">
+        <div class="form-group">
+          <input ng-model="matchCtrl.newMatchTitle" type="text" name="list" class="form-control" placeholder="Title" autofocus>
+          <input ng-model="matchCtrl.newMatchCourse" type="text" name="list" class="form-control" placeholder="Course" autofocus>
+          <input ng-model="matchCtrl.newMatchTimeAndDate" type="text" name="list" class="form-control" placeholder="Date and Time" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" value="Create Match">
+        </div>
+      </form>
+      <br>
+
+      <!-- list of items -->
+      <ul class="list-group">
+
+
+        <li class="list-group-item">
+
+          {{match.title}}
+          {{match.timeanddate}}
+          {{match.course}}
+
+          <div class="pull-right">
+
+            <!-- pencil icon to toggle update form -->
+            <a ng-click="matchCtrl.toggleEditForm(match)">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <!-- trash can icon to delete todo -->
+             <a ng-click="matchCtrl.deleteMatch(match)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </div>
+
+          <!-- form to update todo -->
+          <div ng-show="match.showForm">
+            <br>
+            <form class="form-inline update-todo" ng-submit="matchCtrl.updateMatch(match)">
+              <div class="form-group">
+                <input type="text" name="task" class="form-control" ng-model="match.title">
+              </div>
+              <div class="form-group">
+                <input type="text" name="task" class="form-control" ng-model="match.timeAndDate">
+              </div>
+              <div class="form-group">
+                <input type="text" name="task" class="form-control" ng-model="match.course">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-block btn-default" value="Update">
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+      <a class="btn btn-default" ng-href="/matches">View all Matches</a>
+    </div>
+  </div>
+</div>

@@ -19,7 +19,7 @@ function config ( $routeProvider, $locationProvider ) {
     controller: 'MatchesController',
     controllerAs: 'matchesCtrl'
   })
-  .when('/matches/:matchId', {
+  .when('/matches/:id', {
     templateUrl: 'match.template.html',
     controller: 'MatchController',
     controllerAs: 'matchCtrl'
