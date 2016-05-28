@@ -5,19 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-courses = Course.create([
-  {name:"Pebble Beach", location:"Monterey", price:400, url:"http://www.pebblebeach.com", image:"http://www.pebblebeach.com/templates/pebble-homepage/createjs/images/hole1.jpg"},
-  {name:"Spyglass", location:"Monterey", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"http://www.dhbailey.com/photos/DSCN0156.JPG"},
-  {name:"Augusta", location:"Georgia", price:450, url:"http://www.augusta.com", image:"http://gotravelaz.com/wp-content/uploads/images/Augusta_1781.jpg"}
-  ])
+Course.destroy_all
+Match.destroy_all
 
 
-matches = Match.create([
-  {title:"Eric's round of Golf", timeanddate:"6-20-2016 13:00", course_id:1},
-  {title:"Jonathan's round of Golf", timeanddate:"5-20-2016 14:00", course_id:2},
-  {title:"Kirby's round of Golf", timeanddate:"8-20-2016 12:00", course_id:3}
-  ])
+pebble = Course.create({name:"Pebble Beach", location:"Monterey", price:400, url:"http://www.pebblebeach.com", image:"http://www.pebblebeach.com/templates/pebble-homepage/createjs/images/hole1.jpg"})
+spyglass = Course.create({name:"Spyglass", location:"Monterey", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"http://www.dhbailey.com/photos/DSCN0156.JPG"})
+augusta = Course.create({name:"Augusta", location:"Georgia", price:450, url:"http://www.augusta.com", image:"http://gotravelaz.com/wp-content/uploads/images/Augusta_1781.jpg"})
+
+a = Match.create({title:"Eric's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
+b = Match.create({title:"Jonathan's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
+c = Match.create({title:"Kirby's round of Golf", timeanddate:DateTime.new(2017,2,3,4,5,6,'+7')})
+
+pebble.matches << a
+spyglass.matches << b
+augusta.matches << c
+
 p "seed completed"
-p courses
-p matches
