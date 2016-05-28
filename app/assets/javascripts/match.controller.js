@@ -4,8 +4,8 @@ angular
   .module('Down2GolfApp')
   .controller('MatchController', MatchController);
 
-MatchesController.$inject = ['MatchesService', '$location'];
-function MatchesController(   MatchesService,   $location  ) {
+MatchController.$inject = ['MatchesService', '$location'];
+function MatchController(   MatchesService,   $location  ) {
   var vm = this;
   console.log('MatchController is live');
   vm.matches = [];
@@ -20,7 +20,7 @@ function MatchesController(   MatchesService,   $location  ) {
 
 
   function getMatch() {
-    MatchesService.query(function(data){
+    MatchesService.query({id:id}, function(data){
       console.log('here\'s the match data in the controller', data);
       vm.match = data;
     });
