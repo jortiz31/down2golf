@@ -51,6 +51,6 @@ function MatchesController(   MatchesService,   $location  ) {
   }
   function showMatch(match) {
     console.log('transition to showing match:', match);
-    $location.path('/matches/' + match.match_id);
+    $location.path('/matches/' + match.id);
   }
 }

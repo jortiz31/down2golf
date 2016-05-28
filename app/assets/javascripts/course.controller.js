@@ -9,7 +9,7 @@ CourseController.$inject = ['CoursesService', '$location', '$routeParams'];
 function CourseController(   CoursesService,   $location , $routeParams ) {
   var vm = this;
   console.log('CourseController is live');
-  var courseId = $routeParams.courseId;
+  var courseId = $routeParams.id;
   vm.courses = [];
   vm.newCourseName = '';
   vm.newCourseUrl = '';
@@ -23,7 +23,7 @@ function CourseController(   CoursesService,   $location , $routeParams ) {
   getCourse(courseId);
 
   function getCourse() {
-    CoursesService.query({id:courseId},function(data){
+    CoursesService.get({id:courseId},function(data){
       console.log('here\'s the courses data in the controller', data);
       vm.course = data;
     });

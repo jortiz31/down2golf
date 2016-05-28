@@ -3,9 +3,12 @@ angular.module('Down2GolfApp')
 
   CoursesService.$inject = ['$resource'];
   function CoursesService($resource) {
-    resource = $resource('/api/courses/:courseId', {id: '@courseId'},{
+    resource = $resource('/api/courses/:courseId', {courseId: '@courseId'},{
         update: {
           method: 'PUT' // this method issues a PUT request
+        },
+        get: {
+          method: "GET"
         },
         query: {
           isArray: true,

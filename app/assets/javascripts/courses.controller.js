@@ -57,6 +57,6 @@ function CoursesController(   CoursesService,   $location  ) {
 
   function showCourse(course) {
     console.log('transition to showing course:', course);
-    $location.path('/courses/' + course.id);
+    $location.path('/courses/' +course.id);
   }
 }

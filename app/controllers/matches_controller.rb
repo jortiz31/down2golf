@@ -45,12 +45,12 @@ class MatchesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_list
+    def set_match
       @match = Match.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def list_params
-      params.require(:match).permit(:timeanddate, :course_id, :title)
+    def match_params
+      params.require(:match).permit(:timeanddate, :title)
     end
 end
