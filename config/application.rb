@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 
 
 
-module Down2golf
+module Down2GolfApp
   class Application < Rails::Application
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.active_record.raise_in_transactional_callbacks = true
