@@ -1,11 +1,11 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 angular
-  .module('down2GolfApp')
+  .module('Down2GolfApp')
   .controller('CoursesController', CoursesController);
 
-ListsController.$inject = ['CoursesService', '$location'];
-function ListsController(   CoursesService,   $location  ) {
+CoursesController.$inject = ['CoursesService', '$location'];
+function CoursesController(   CoursesService,   $location  ) {
   var vm = this;
   console.log('CoursesController is live');
   vm.courses = [];
@@ -24,8 +24,8 @@ function ListsController(   CoursesService,   $location  ) {
     });
   }
 
-  function deleteList(list, $event) {
-    ListsService.remove({id: list.id}, handleDeleteSuccess);
+  function deleteCourse(course, $event) {
+    CoursesService.remove({id: courseId}, handleDeleteSuccess);
       // we can get access to the 'click' or other event using $event (see the template also)
       // we don't want to trigger both deleteList and showList so we stop event propagation
       $event.stopPropagation();
@@ -33,25 +33,25 @@ function ListsController(   CoursesService,   $location  ) {
       // declaring this inside deleteList to have a closure around list variable
       function handleDeleteSuccess(data) {
         console.log('deleted');
-        vm.lists.splice(vm.lists.indexOf(list), 1);
+        vm.courses.splice(vm.courses.indexOf(course), 1);
       }
 
   }
 
-  function createList() {
-    console.log('create with', vm.newListName);
-    if(vm.newListName.length > 1) {
-      ListsService.save({name: vm.newListName}, handleCreateSuccess);
-      vm.newListName = '';
+  function createCourse() {
+    console.log('create with', vm.newCourseName);
+    if(vm.newCourseName.length > 1) {
+      CoursesService.save({name: vm.newCourseName}, handleCreateSuccess);
+      vm.newCourseName = '';
     }
   }
   function handleCreateSuccess(data) {
     console.log('created', data);
-    vm.lists.unshift(data);
+    vm.courses.unshift(data);
   }
 
-  function showList(list) {
-    console.log('transition to showing list:', list);
-    $location.path('/lists/' + list.id);
+  function showCourse(course) {
+    console.log('transition to showing course:', course);
+    $location.path('/courses/' + course.id);
   }
 }
