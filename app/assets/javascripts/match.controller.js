@@ -7,7 +7,7 @@ angular
 MatchController.$inject = ['MatchesService', '$location','$routeParams'];
 function MatchController(   MatchesService,   $location , $routeParams ) {
   var vm = this;
-  var matchId = $routeParams.matchId;
+  var matchId = $routeParams.id;
   console.log('MatchController is live');
   vm.matches = [];
   vm.newMatchTitle = '';
@@ -19,9 +19,8 @@ function MatchController(   MatchesService,   $location , $routeParams ) {
   // fetch data
   getMatch(matchId);
 
-
   function getMatch(id) {
-    MatchesService.get({id:id},function(data){
+    MatchesService.get({id:id}, function(data){
       console.log('here\'s the match data in the controller', data);
       vm.match = data;
     });
@@ -55,6 +54,6 @@ function MatchController(   MatchesService,   $location , $routeParams ) {
 
   function showMatch(match) {
     console.log('transition to showing match:', match);
-    $location.path('/matches/' + match.id);
+    $location.path('/matches/' + match.match_id);
   }
 }

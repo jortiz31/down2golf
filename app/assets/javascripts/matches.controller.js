@@ -37,9 +37,7 @@ function MatchesController(   MatchesService,   $location  ) {
         console.log('deleted');
         vm.matches.splice(vm.matches.indexOf(match), 1);
       }
-
   }
-
   function createMatch() {
     console.log('create with', vm.newMatchName);
     if(vm.newMatchTitle.length > 1) {
@@ -51,9 +49,8 @@ function MatchesController(   MatchesService,   $location  ) {
     console.log('created', data);
     vm.matches.unshift(data);
   }
-
   function showMatch(match) {
     console.log('transition to showing match:', match);
-    $location.path('/matches/' + match.id);
+    $location.path('/matches/' + match.match_id);
   }
 }

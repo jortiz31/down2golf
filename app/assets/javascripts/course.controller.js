@@ -5,10 +5,11 @@ angular
   .module('Down2GolfApp')
   .controller('CourseController', CourseController);
 
-CourseController.$inject = ['CoursesService', '$location'];
-function CourseController(   CoursesService,   $location  ) {
+CourseController.$inject = ['CoursesService', '$location', '$routeParams'];
+function CourseController(   CoursesService,   $location , $routeParams ) {
   var vm = this;
   console.log('CourseController is live');
+  var courseId = $routeParams.courseId;
   vm.courses = [];
   vm.newCourseName = '';
   vm.newCourseUrl = '';
@@ -19,7 +20,7 @@ function CourseController(   CoursesService,   $location  ) {
   vm.createCourse = createCourse;
   vm.showCourse = showCourse;
   // fetch data
-  getCourses();
+  getCourse(courseId);
 
   function getCourse() {
     CoursesService.query({id:courseId},function(data){

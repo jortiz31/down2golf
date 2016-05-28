@@ -14,12 +14,12 @@ function config ( $routeProvider, $locationProvider ) {
     controller: 'CourseController',
     controllerAs: 'courseCtrl'
   })
-  .when('/matches', {  //note same as above, JIC
+  .when('/matches', {
     templateUrl: 'matches.template.html',
     controller: 'MatchesController',
     controllerAs: 'matchesCtrl'
   })
-  .when('/matches/:id', {
+  .when('/matches/:matchId', {
     templateUrl: 'match.template.html',
     controller: 'MatchController',
     controllerAs: 'matchCtrl'
