@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :matches, through: :usersmatches
-  has_many :usersmatches
+  has_many :usersmatches, class_name: Usermatch
 end

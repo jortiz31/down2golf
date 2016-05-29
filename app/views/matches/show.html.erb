@@ -1,0 +1,5 @@
+Title:<strong><%= @match.title %><br></strong>
+Course:<strong><%= @match.course.name %><br></strong>
+Time and Date:<strong><%= @match.timeanddate %></strong>
+Users attending:<strong><%= @match.users %></strong>
+<%= link_to "join match", matches_update_path(@match,current_user) %>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :matches
     resources :courses
   end
+  put "/matches/:id", to:'matches#update', as: "matches_update"
+  resources :matches
+  resources :courses
   resources :users
   get '*path', to: 'site#angular'
 end

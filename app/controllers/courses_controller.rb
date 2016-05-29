@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @matches = @course.matches
-    respond_with @course
   end
 
   private

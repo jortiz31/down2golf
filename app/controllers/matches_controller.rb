@@ -10,8 +10,7 @@ class MatchesController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    respond_with @match
-    @users = @match.users
+    @match = Match.find(params[:id])
   end
 
   # POST /lists
@@ -19,6 +18,7 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     current_user.matches << @match
+    @match.users << current_user
     if @match.save
       render :show, status: :created, location: @match
     else
@@ -29,6 +29,8 @@ class MatchesController < ApplicationController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
+    @match.users << current_user
+    current_user.matches<< @match
     if @match.update(match_params)
       render :show, status: :ok, location: @match
     else
@@ -51,6 +53,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:timeanddate, :title)
+      params.require(:match).permit(:timeanddate, :title, :user)
     end
 end
