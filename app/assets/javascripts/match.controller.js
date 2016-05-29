@@ -2,27 +2,27 @@
 // All this logic will automatically be available in application.js.
 angular
   .module('Down2GolfApp')
-  .controller('MatchesController', MatchesController);
+  .controller('MatchController', MatchController);
 
-MatchesController.$inject = ['MatchesService', '$location'];
-function MatchesController(   MatchesService,   $location  ) {
+MatchController.$inject = ['MatchesService', '$location','$routeParams'];
+function MatchController(   MatchesService,   $location , $routeParams ) {
   var vm = this;
-  console.log('MatchesController is live');
-  vm.matches = [];
+  var matchId = $routeParams.id;
+  console.log('MatchController is live');
   vm.newMatchTitle = '';
   vm.newMatchTimeAndDate ='';
   vm.newMatchCourse = '';
   vm.deleteMatch = deleteMatch;
   vm.createMatch = createMatch;
   vm.showMatch = showMatch;
+  vm.match = {};
   // fetch data
-  getMatches();
+  getMatch(matchId);
 
-
-  function getMatches() {
-    MatchesService.query(function(data){
-      console.log('here\'s the matches data in the controller', data);
-      vm.matches = data;
+  function getMatch(id) {
+    MatchesService.get({id:id}, function(data){
+      console.log('here\'s the match data in the controller', data);
+      vm.match = data;
     });
   }
 
@@ -37,7 +37,9 @@ function MatchesController(   MatchesService,   $location  ) {
         console.log('deleted');
         vm.matches.splice(vm.matches.indexOf(match), 1);
       }
+
   }
+
   function createMatch() {
     console.log('create with', vm.newMatchName);
     if(vm.newMatchTitle.length > 1) {
@@ -49,8 +51,9 @@ function MatchesController(   MatchesService,   $location  ) {
     console.log('created', data);
     vm.matches.unshift(data);
   }
+
   function showMatch(match) {
     console.log('transition to showing match:', match);
-    $location.path('/matches/' + match.id);
+    $location.path('/matches/' + match.match_id);
   }
 }

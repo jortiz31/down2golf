@@ -3,15 +3,7 @@ angular.module('Down2GolfApp')
 
   CoursesService.$inject = ['$resource'];
   function CoursesService($resource) {
-
-    /* ngResource <3 RESTful routes
-    { 'get':    'GET /items/:id',
-      'save':   'POST /items',
-      'query':  'GET /items',
-      'remove': 'DELETE /items/:id',
-      'update': 'PUT /items/:id' };
-    */
-    resource = $resource('/api/courses/:courseId', {id: '@courseId'},{
+    resource = $resource('/api/courses/:courseId', {courseId: '@courseId'},{
         update: {
           method: 'PUT' // this method issues a PUT request
         },

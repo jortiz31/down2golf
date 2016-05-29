@@ -1,4 +1,4 @@
-angular.module('Down2GolfApp', ['ngRoute', 'templates'])
+angular.module('Down2GolfApp', ['ngResource','ngRoute', 'templates'])
 .config(config);
 
 config.$inject = ['$routeProvider', '$locationProvider'];
@@ -14,7 +14,7 @@ function config ( $routeProvider, $locationProvider ) {
     controller: 'CourseController',
     controllerAs: 'courseCtrl'
   })
-  .when('/matches', {  //note same as above, JIC
+  .when('/matches', {
     templateUrl: 'matches.template.html',
     controller: 'MatchesController',
     controllerAs: 'matchesCtrl'

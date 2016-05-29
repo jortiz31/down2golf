@@ -3,12 +3,13 @@
 // All this logic will automatically be available in application.js.
 angular
   .module('Down2GolfApp')
-  .controller('CoursesController', CoursesController);
+  .controller('CourseController', CourseController);
 
-CoursesController.$inject = ['CoursesService', '$location'];
-function CoursesController(   CoursesService,   $location  ) {
+CourseController.$inject = ['CoursesService', '$location', '$routeParams'];
+function CourseController(   CoursesService,   $location , $routeParams ) {
   var vm = this;
-  console.log('CoursesController is live');
+  console.log('CourseController is live');
+  var courseId = $routeParams.id;
   vm.courses = [];
   vm.newCourseName = '';
   vm.newCourseUrl = '';
@@ -19,16 +20,14 @@ function CoursesController(   CoursesService,   $location  ) {
   vm.createCourse = createCourse;
   vm.showCourse = showCourse;
   // fetch data
-  getCourses();
+  getCourse(courseId);
 
-
-  function getCourses() {
-    CoursesService.query(function(data){
+  function getCourse() {
+    CoursesService.get({id:courseId},function(data){
       console.log('here\'s the courses data in the controller', data);
-      vm.courses = data;
+      vm.course = data;
     });
   }
-
   function deleteCourse(course, $event) {
     CoursesService.remove({id: courseId}, handleDeleteSuccess);
       // we can get access to the 'click' or other event using $event (see the template also)
@@ -40,9 +39,7 @@ function CoursesController(   CoursesService,   $location  ) {
         console.log('deleted');
         vm.courses.splice(vm.courses.indexOf(course), 1);
       }
-
   }
-
   function createCourse() {
     console.log('create with', vm.newCourseName);
     if(vm.newCourseName.length > 1) {
@@ -57,6 +54,6 @@ function CoursesController(   CoursesService,   $location  ) {
 
   function showCourse(course) {
     console.log('transition to showing course:', course);
-    $location.path('/courses/' +course.id);
+    $location.path('/courses/' + course.id);
   }
 }

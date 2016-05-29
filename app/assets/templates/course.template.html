@@ -1,0 +1,71 @@
+<!-- header -->
+<div class="well">
+  <div class="container">
+    <div class="page-header">
+      <h1>Down2Golf <span class='small'>- viewing course: "{{courseCtrl.course.name}}"</span></h1>
+    </div>
+  </div>
+</div>
+
+<!-- page content -->
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2">
+
+      <!-- new list form-->
+      <form class="form-inline" ng-submit="courseCtrl.createMatch()">
+        <div class="form-group">
+          <input ng-model="courseCtrl.newMatchTitle" type="text" name="list" class="form-control" placeholder="Name" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" value="Create Item">
+        </div>
+      </form>
+      <br>
+
+      <!-- list of items -->
+      <ul class="list-group">
+
+
+        <li class="list-group-item">
+
+          <!--  description -->
+          {{course.name}}
+          {{course.url}}
+          {{course.image}}
+          {{course.location}}
+          {{course.price}}
+
+          <div class="pull-right">
+
+            <!-- pencil icon to toggle update form -->
+            <a ng-click="courseCtrl.toggleEditForm(item)">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            <!-- trash can icon to delete todo -->
+             <a ng-click="courseCtrl.deleteItem(item)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </a>
+          </div>
+
+          <!-- form to update todo -->
+          <div ng-show="item.showForm">
+            <br>
+            <form class="form-inline update-todo" ng-submit="listCtrl.updateItem(item)">
+              <div class="form-group">
+                <input type="text" name="task" class="form-control" ng-model="item.name">
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-block btn-default" value="Update">
+              </div>
+            </form>
+          </div>
+        </li>
+
+
+      </ul>
+      <a class="btn btn-default" ng-href="/courses">View all Courses</a>
+    </div>
+  </div>
+</div>

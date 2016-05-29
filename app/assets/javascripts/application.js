@@ -1,11 +1,12 @@
+
 /*
 * app/assets/javascripts/application.js
 */
-
 //= require jquery
 //= require foundation
 //= require angular
 //= require angular-route
+//= require angular-resource
 //
 //= require angular-rails-templates
 //= Templates in app/assets/templates
