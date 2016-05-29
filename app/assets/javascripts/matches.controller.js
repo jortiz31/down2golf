@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 angular
-  .module('Down2GolfAppApp')
+  .module('Down2GolfApp')
   .controller('MatchesController', MatchesController);
 
 MatchesController.$inject = ['MatchesService', '$location'];

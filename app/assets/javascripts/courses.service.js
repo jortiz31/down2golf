@@ -1,4 +1,4 @@
-angular.module('Down2GolfAppApp')
+angular.module('Down2GolfApp')
   .service('CoursesService', CoursesService);
 
   CoursesService.$inject = ['$resource'];
