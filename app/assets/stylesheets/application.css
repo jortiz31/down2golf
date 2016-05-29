@@ -1,10 +1,10 @@
 /*
  * app/assets/stylesheets/application.css
  *
- *= require main
+
  *= require_tree .
  *= require_self
- *= require foundation
+ *= require foundation_and_overrides
 
  */
 
