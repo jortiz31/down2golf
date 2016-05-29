@@ -3,3 +3,10 @@
 <h3><%= @course.price %></h3><br>
 <h3><%= @course.url %></h3><br>
 <img src="<%= @course.image %>">
+Matches: <br><% @course.matches.each do |match| %>
+<%= link_to match.title, match_show_path(match) %><br>
+<%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
+<%= match.course.name %>
+<% end %><br>
+<%= link_to "Back to Courses Index", courses_path %><br>
+<%= link_to "back to matches index", matches_path %>

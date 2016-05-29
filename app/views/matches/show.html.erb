@@ -5,5 +5,8 @@ Users attending:<br>
 <% @match.users.each do |user| %>
                   <strong><%= user.email %></strong><br>
                 <% end %>
-                <%= link_to 'join', match_user_join_path(@match, current_user) %>
-                <%= link_to 'leave', match_user_leave_path(@match,current_user) %>
+              <strong><%= link_to 'join', match_user_join_path(@match, current_user) %></strong>
+              <strong><%= link_to 'leave', match_user_leave_path(@match,current_user) %></strong><br>
+
+<%=link_to "back to courses index", courses_path%><br>
+<%= link_to "back to matches index", matches_path %>
