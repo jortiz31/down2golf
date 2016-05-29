@@ -4,7 +4,6 @@
 */
 //= require jquery
 //= require foundation
-//= require foundation.min
 //= require what-input
 //= require_tree .
 
