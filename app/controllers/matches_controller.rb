@@ -26,12 +26,12 @@ class MatchesController < ApplicationController
     end
   end
 
+  def edit
+    render :edit
+  end
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
-    @user = current_user
-    @match.users << current_user
-    current_user.matches<< @match
     if @match.update(match_params)
       render :show, status: :ok, location: @match
     else

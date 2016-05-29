@@ -1,7 +1,7 @@
 Title:<strong><%= @match.title %><br></strong>
 Course:<strong><%= @match.course.name %><br></strong>
-Time and Date:<strong><%= @match.timeanddate %></strong>
-Users attending:
+Time and Date:<strong><%= @match.timeanddate %></strong><br>
+Users attending:<br>
 <% @match.users.each do |user| %>
                   <strong><%= user.email %></strong><br>
                 <% end %>
