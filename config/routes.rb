@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   end
   resources :courses
   resources :users
+  get "/courses/:course_id", to: "courses#show", as: "course_show"
   get '*path', to: 'courses#index'
 end
