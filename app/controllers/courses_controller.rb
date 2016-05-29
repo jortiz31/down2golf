@@ -6,9 +6,20 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @matches = @course.matches
-    respond_with @course
   end
 
+  def edit
+    render :edit
+  end
+
+  def update
+    @course.update(course_params)
+  end
+
+  def destroy
+    @course.destroy
+  end
+  
   private
   def course_params
     params.require(:course).permit(:name, :location, :image, :url, :price)

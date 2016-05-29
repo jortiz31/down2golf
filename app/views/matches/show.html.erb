@@ -1,0 +1,9 @@
+Title:<strong><%= @match.title %><br></strong>
+Course:<strong><%= @match.course.name %><br></strong>
+Time and Date:<strong><%= @match.timeanddate %></strong><br>
+Users attending:<br>
+<% @match.users.each do |user| %>
+                  <strong><%= user.email %></strong><br>
+                <% end %>
+                <%= link_to 'join', match_user_join_path(@match, current_user) %>
+                <%= link_to 'leave', match_user_leave_path(@match,current_user) %>

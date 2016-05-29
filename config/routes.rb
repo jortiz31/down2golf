@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'site#angular'
+  root 'courses#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -9,10 +9,13 @@ Rails.application.routes.draw do
     get "/signup", :to => "users/registrations#new", :as => :signup
     get "/logout", :to => "users/sessions#destroy", :as => :logout
   end
-  scope '/api', defaults: {format: :json} do
-    resources :matches
-    resources :courses
+  resources :matches do
+    resources :users do
+      get 'join'
+      get 'leave'
+    end
   end
+  resources :courses
   resources :users
-  get '*path', to: 'site#angular'
+  get '*path', to: 'courses#index'
 end
