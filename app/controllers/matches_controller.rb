@@ -29,6 +29,7 @@ class MatchesController < ApplicationController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
+    @user = current_user
     @match.users << current_user
     current_user.matches<< @match
     if @match.update(match_params)
@@ -38,6 +39,17 @@ class MatchesController < ApplicationController
     end
   end
 
+  def join
+    @match = Match.find params[:match_id]
+    current_user.matches << @match
+    redirect_to @match
+  end
+
+  def leave
+    @match = Match.find params[:match_id]
+    current_user.matches.destroy(@match)
+    redirect_to @match
+  end
   # DELETE /lists/1
   # DELETE /lists/1.json
   def destroy
