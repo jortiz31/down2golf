@@ -9,13 +9,13 @@ function MatchController(   MatchesService,   $location , $routeParams ) {
   var vm = this;
   var matchId = $routeParams.id;
   console.log('MatchController is live');
-  vm.matches = [];
   vm.newMatchTitle = '';
   vm.newMatchTimeAndDate ='';
   vm.newMatchCourse = '';
   vm.deleteMatch = deleteMatch;
   vm.createMatch = createMatch;
   vm.showMatch = showMatch;
+  vm.match = {};
   // fetch data
   getMatch(matchId);
 

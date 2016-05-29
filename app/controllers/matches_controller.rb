@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  before_action :set_list, only: [:show, :update, :destroy]
+  before_action :set_match, only: [:show, :update, :destroy]
 
   # GET /lists
   # GET /lists.json
@@ -10,7 +10,7 @@ class MatchesController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    @match = Match.find(params[:id])
+    respond_with @match
     @users = @match.users
   end
 

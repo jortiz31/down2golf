@@ -7,9 +7,11 @@ angular.module('Down2GolfApp')
         update: {
           method: 'PUT' // this method issues a PUT request
         },
-        get:{method: "GET"},
+        get:{
+          isArray: false
+        },
         query: {
-          isArray: true,
+          isArray: true
         }
       });
     return resource;
