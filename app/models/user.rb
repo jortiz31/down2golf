@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :matches, through: :usersmatches
-  has_many :usersmatches, class_name: Usermatch
+  has_many :matches, through: :usersmatches, dependent: :destroy
+  has_many :usersmatches, class_name: Usermatch, dependent: :destroy
 end

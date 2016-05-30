@@ -1,24 +1,21 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :update, :destroy]
+  def new
+    @match=Match.new
+    @courses=Course.all
+  end
 
-  # GET /lists
-  # GET /lists.json
   def index
     @matches = Match.all
   end
 
-  # GET /lists/1
-  # GET /lists/1.json
   def show
     @match = Match.find(params[:id])
   end
 
-  # POST /lists
-  # POST /lists.json
   def create
     @match = Match.new(match_params)
     current_user.matches << @match
-    @match.users << current_user
     if @match.save
       render :show, status: :created, location: @match
     else
@@ -29,8 +26,7 @@ class MatchesController < ApplicationController
   def edit
     render :edit
   end
-  # PATCH/PUT /lists/1
-  # PATCH/PUT /lists/1.json
+
   def update
     if @match.update(match_params)
       render :show, status: :ok, location: @match
@@ -41,6 +37,7 @@ class MatchesController < ApplicationController
 
   def join
     @match = Match.find params[:match_id]
+    @match.users << current_user
     current_user.matches << @match
     redirect_to @match
   end
@@ -50,21 +47,17 @@ class MatchesController < ApplicationController
     current_user.matches.destroy(@match)
     redirect_to @match
   end
-  # DELETE /lists/1
-  # DELETE /lists/1.json
+
   def destroy
     @match.destroy
-    head :no_content
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_match
       @match = Match.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:timeanddate, :title, :user)
+      params.require(:match).permit(:timeanddate, :title, :course_id)
     end
 end
