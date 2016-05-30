@@ -1,16 +1,12 @@
 /*
  * app/assets/stylesheets/application.css
  *
-
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require main
 
  */
-
-
-
- @import 'foundation-icons';
 
  @font-face {
    font-family: "foundation-icons";

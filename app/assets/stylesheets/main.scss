@@ -1,70 +1,79 @@
-$menu-icon-size: 4rem;
-$menu-icon-color: #333;
-$menu-link-height: 6.25rem;
-$menu-link-color: #fff;
-$menu-link-border: 1px solid rgba(255,255,255, .5);
+body {marging-top: 2rem;}
 
-.toggle-menu {
-  position:relative;
-  font-size: $menu-icon-size;
-  z-index: 5000;
-  color: $menu-icon-color;
-  top: -0.5rem;
-  left: 1.5rem;
-  transition: all 0.4s ease-in-out;
+$menu-background: #333;
 
-  &:hover {
-    transition: all 0.4s ease-in-out;
-    color: lighten($menu-icon-color, 30%);
-  }
+@import url(https://fonts.googleapis.com/css?family=Marvel:400,700);
+
+body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
+
+// $grid-column-gutter: 30px;
+
+.title-bar {
+  background: $menu-background;
+  padding: 0.9rem;
 }
 
-.overlay-menu {
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  margin:0;
-  padding: 5rem 0 0;
-  opacity: 0;
-  list-style: none;
-  background: url('http://www.nasa.gov/sites/default/files/cygx1_ill.jpg') no-repeat center center;
-  background-size: cover;
-  text-align: center;
-  transform: translateX(-100%) rotateX(40deg);
-  transition: all 400ms cubic-bezier(1.000, -0.400, 0.440, 0.985);
+.top-bar {
+  background: $menu-background;
 
-  li {
-    font-size: 1.5rem;
-  }
+  ul {
+    background: $menu-background;
 
-  a {
-    display: block;
-    color: $menu-link-color;
-    font-weight: bold;
-    height: $menu-link-height;
-    line-height: 6.25rem;
-    border-bottom: $menu-link-border;
-    text-decoration: none;
+    li {
+      background: $menu-background;
 
-    &:hover {
-      background-color: darken(dodgerblue, 3%);
+        a {
+          color: #fff;
+      }
     }
   }
+}
 
-  &.is-open ~ .toggle-menu {
-    display: inline-block;
-    transition: all 0.4s ease-in-out;
-    transform: rotate(135deg);
-    color: lighten($menu-icon-color, 100%);
+.menu-text {
+  color: #fff;
+
+  @media only screen and (max-width: 40em) {
+    display: none !important;
   }
 }
 
-.is-open {
-  top: 0;
-  opacity: 1;
-  transform: perspective(200px) translateX(0) rotateX(0);
+@media only screen and (min-width: 40em) {
+  .menu:last-child {
+    border-left: 1px solid #4e4e4e;
+  }
+
+  .menu:first-child {
+    border-left: none;
+  }
+
+  .menu {
+    li:not(:last-child) {
+      border-right: 1px solid #4e4e4e;
+    }
+  }
+}
+
+.dropdown.menu .submenu {
+  border: none;
+}
+
+.dropdown.menu .is-dropdown-submenu-parent.is-right-arrow>a::after {
+  border-color: #fff transparent transparent;
+}
+
+.is-drilldown-submenu-parent>a::after {
+  border-color: transparent transparent transparent #fff;
+}
+
+.js-drilldown-back::before {
+  border-color: transparent #fff transparent transparent;
+}
+
+
+// CUSTOM STYLING IMAGE
+.fixed-image {
+  max-width: 100% !important;
+  height: auto;
+  margin: 5px 0 10px 0;
+  display: block;
 }

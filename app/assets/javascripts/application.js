@@ -1,12 +1,17 @@
-
 /*
-* app/assets/javascripts/application.js
-*/
+ * app/assets/javascripts/application.js
+ */
+
 //= require jquery
-//= require foundation
-//= require what-input
+//= require foundation.min
 //= require_tree .
+
 
 console.log('application.js loaded');
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(window).load(function() {
+    console.log('foundation loaded');
+    $(document).foundation();
+  });
+});

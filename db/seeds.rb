@@ -9,9 +9,20 @@ Course.destroy_all
 Match.destroy_all
 
 
-pebble = Course.create({name:"Pebble Beach", location:"Monterey", price:400, url:"http://www.pebblebeach.com", image:"http://www.pebblebeach.com/templates/pebble-homepage/createjs/images/hole1.jpg"})
-spyglass = Course.create({name:"Spyglass", location:"Monterey", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"http://www.dhbailey.com/photos/DSCN0156.JPG"})
-augusta = Course.create({name:"Augusta", location:"Georgia", price:450, url:"http://www.augusta.com", image:"http://gotravelaz.com/wp-content/uploads/images/Augusta_1781.jpg"})
+pebble = Course.create({name:"Pebble Beach", location:"Monterey, CA", price:400, url:"http://www.pebblebeach.com", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+spyglass = Course.create({name:"Spyglass", location:"Monterey, CA", price:300, url:"http://texaslifestylemag.com/wp-content/uploads/2015/09/Pebble-Beach-Golf-Links-No.-18-Bart-Keagy.jpg", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+augusta = Course.create({name:"Augusta", location:"Augusta, GA", price:450, url:"http://www.augusta.com",
+image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+chuck = Course.create({name:"Chuck Corica", location:"Alameda, GA", price:150, url:"http://www.chucks.com", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+coyote = Course.create({name:"Coyote Creek", location:"Morgan Hill, CA", price:350, url:"http://www.coyote.com", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+baker = Course.create({name:"David Baker", location:"Fountain Valley, CA", price:350, url:"http://www.davidbaker.com", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+
+
 
 a = Match.create({title:"Eric's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
 b = Match.create({title:"Jonathan's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
@@ -20,5 +31,8 @@ c = Match.create({title:"Kirby's round of Golf", timeanddate:DateTime.new(2017,2
 pebble.matches << a
 spyglass.matches << b
 augusta.matches << c
+chuck.matches << a
+coyote.matches << b
+baker.matches << c
 
 p "seed completed"

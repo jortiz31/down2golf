@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <nav role="navigation">
-      <ul id="menu" class="overlay-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li>
-          <form class="menu-form" action="index.html" method="post">
-            <div class="row">
-              <div class="large-6 medium-6 small-6 small-centered medium-centered large-centered columns">
-                <input type="text" placeholder="Username">
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
+  <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
 
-                <input type="password" placeholder="Password" aria-describedby="passwordHelpText">
+  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Menu</div>
+  </div>
 
-                <button type="button" class="small expanded button" name="button">Log In</button>
-              </div>
-            </div>
-          </form>
-        </li>
+  <div class="top-bar" id="main-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Site Title</li>
       </ul>
-      <a class="toggle-menu" href="#menu"><i class="fi-plus"></i></a>
-    </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+        <li class="has-submenu">
+          <a href="#">One</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <%= yield %>
 
-    <script>
-    $(".toggle-menu").on("click", function(){
-      $("#menu").toggleClass("is-open");
-    });
-    </script>
 
-  </body>
-  </html>
+<%= yield %>
+
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "foundation" %>
+<%= javascript_include_tag "bodyscript" %>
+
+
+</body>
+</html>
