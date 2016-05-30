@@ -12,7 +12,7 @@ Match.destroy_all
 
 pebble = Course.create({name:"Pebble Beach", location:"Monterey, CA", price:400, url:"http://www.pebblebeach.com", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
 
-spyglass = Course.create({name:"Spyglass", location:"Monterey, CA", price:300, url:"http://texaslifestylemag.com/wp-content/uploads/2015/09/Pebble-Beach-Golf-Links-No.-18-Bart-Keagy.jpg", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+spyglass = Course.create({name:"Spyglass", location:"Monterey, CA", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
 
 augusta = Course.create({name:"Augusta", location:"Augusta, GA", price:450, url:"http://www.augusta.com",
 image:"http://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})

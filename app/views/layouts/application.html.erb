@@ -42,6 +42,13 @@
     </div>
   </div>
 
+  <div class="flash">
+    <% flash.each do |name, msg| %>
+      <p>
+        <small class="alert alert-info"> <%= name.capitalize %>: <%= msg %> </small>
+      </p>
+    <% end %>
+  </div>
 
 
 <%= yield %>

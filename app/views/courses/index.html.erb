@@ -6,99 +6,22 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="large-6 medium-11 medium-centered small-12 columns">
-    <div class="row align-middle">
-      <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(1).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(1)), class: 'large secondary expanded button' %>
-      </div>
-      <div class="columns">
-        <h2><%= Course.find(1).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(1).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(1).price) %></h5></strong>
-      </div>
-    </div>
-  </div>
-  <div class="large-6 medium-11 medium-centered small-12 columns">
-    <div class="row align-middle">
-      <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(2).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(2)), class: 'large secondary expanded button' %>
-      </div>
-      <div class="columns">
-        <h2><%= Course.find(2).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(2).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(2).price) %></h5></strong>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <div class="row">
+  <% @courses.each do |course| %>
   <div class="large-6 medium-11 medium-centered small-12 columns">
     <div class="row align-middle">
       <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(3).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(3)), class: 'large secondary expanded button' %>
+        <img class="fixed-image thumbnail" src= "<%= course.image %>">
+        <%=link_to "See Course", course_show_path(course), class: 'large secondary expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(3).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(3).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(3).price) %></h5></strong>
+        <h2><%= course.name.split.map(&:capitalize)*' ' %> <br></h2>
+        <h4><a href='<%= course.url %>'><%= course.url %></a><br><h4>
+        <h4>Location: <strong><br><%= course.location.split.map(&:capitalize)*' ' %></strong></h4> <br>
+        <h5>Price: <strong><%= number_to_currency(course.price) %></h5></strong>
       </div>
     </div>
   </div>
-  <div class="large-6 medium-11 medium-centered small-12 columns">
-    <div class="row align-middle">
-      <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(4).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(4)), class: 'large secondary expanded button' %>
-      </div>
-      <div class="columns">
-        <h2><%= Course.find(4).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(4).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(4).price) %></h5></strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="large-6 medium-11 medium-centered small-12 columns">
-    <div class="row align-middle">
-      <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(5).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(5)), class: 'large secondary expanded button' %>
-      </div>
-      <div class="columns">
-        <h2><%= Course.find(5).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(5).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(5).price) %></h5></strong>
-      </div>
-    </div>
-  </div>
-  <div class="large-6 medium-11 medium-centered small-12 columns">
-    <div class="row align-middle">
-      <div class="small-7 columns">
-        <img class="fixed-image thumbnail" src= "<%= Course.find(6).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(6)), class: 'large secondary expanded button' %>
-      </div>
-      <div class="columns">
-        <h2><%= Course.find(6).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(6).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(6).price) %></h5></strong>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% @courses.each do |course| %>
-<%=link_to course.name, course_show_path(course) %><br>
-<%= course.location %><br>
-$<%= course.price %><br>
-<a href='<%= course.url %>'><%= course.url %></a><br>
-<img src= "<%=course.image %>">
-<% end %>
+  <% end %>
+<%=link_to "View all Matches", matches_path%>
