@@ -1,3 +1,6 @@
 Welcome, <%= @user.email %><br>
-Created At: <%= @user.created_at %>
+Created At: <%= @user.created_at %><br>
+Humor?<%= rating_for @user, "Humor", enable_half: true %>
+Skill Level?<%= rating_for @user, "Skill_level", enable_half: true %>
+Sociability?<%= rating_for @user, "Sociability", enable_half: true %>
 <%=link_to "logout", logout_path%>

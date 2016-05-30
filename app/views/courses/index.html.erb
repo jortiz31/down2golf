@@ -2,6 +2,6 @@
 <%=link_to course.name, course_show_path(course) %><br>
 <%= course.location %><br>
 $<%= course.price %><br>
-<%= course.url %><br>
+<a href='<%= course.url %>'><%= course.name %></a><br>
 <img src= "<%=course.image %>">
 <% end %>

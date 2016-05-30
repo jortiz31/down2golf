@@ -7,6 +7,9 @@ Users attending:<br>
                 <% end %>
               <strong><%= link_to 'join', match_user_join_path(@match, current_user) %></strong>
               <strong><%= link_to 'leave', match_user_leave_path(@match,current_user) %></strong><br>
-
+              Company?<%= rating_for @match, "company", enable_half: true %>
+              Fun Factor?<%= rating_for @match, "fun_factor", enable_half: true %>
+              Competitiveness?<%= rating_for @match, "competitiveness", enable_half: true %>
+              Play Again?<%= rating_for @match, "play_again", enable_half: true %><br>
 <%=link_to "back to courses index", courses_path%><br>
 <%= link_to "back to matches index", matches_path %>
