@@ -1,15 +1,10 @@
 class UsersController < ApplicationController
-  def new
-  end
-  def create
+  def index
+    @users=User.all
   end
   def show
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
     @matches = @user.matches
-  end
-  def edit
-  end
-  def update
   end
   def destroy
   end
@@ -18,7 +13,6 @@ class UsersController < ApplicationController
     current_user.matches << @match
     redirect_to @match
   end
-
   def leave
     @match = Match.find params[:match_id]
     current_user.matches.destroy(@match)

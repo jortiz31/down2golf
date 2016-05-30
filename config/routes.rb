@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root 'courses#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
@@ -15,8 +16,13 @@ Rails.application.routes.draw do
       get 'leave'
     end
   end
-  resources :courses
-  resources :users
+  resources :courses do
+    resources :matches
+  end
+  resources :users do
+    resources :matches
+  end
   get "/courses/:course_id", to: "courses#show", as: "course_show"
+  get "/matches/:match_id", to: "matches#show", as: "match_show"
   get '*path', to: 'courses#index'
 end

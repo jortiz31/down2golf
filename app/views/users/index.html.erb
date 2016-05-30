@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+  <%= link_to user.email, user_path(user)%><br>
+  <%= user.created_at %><br>
+<% end %>

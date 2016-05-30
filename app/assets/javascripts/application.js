@@ -3,6 +3,9 @@
  */
 
 //= require jquery
+//= require jquery.raty
+//= require ratyrate
+//= require foundation
 //= require foundation.min
 //= require_tree .
 
