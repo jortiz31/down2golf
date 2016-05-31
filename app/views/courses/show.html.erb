@@ -1,5 +1,8 @@
-<h1><%=@course.name %></h1><br>
-<h3> <%= @course.location %></h3><br>
-<h3><%= @course.price %></h3><br>
-<h3><%= @course.url %></h3><br>
 <img src="<%= @course.image %>">
+<h1><%=@course.name %></h1>
+<h3> <%= @course.location %></h3>
+<h3><%= @course.price %></h3>
+<h3><%= @course.url %></h3>
+<h5> <% @course.matches.each do | match| %> </h5>
+<%= match.title %>
+<% end %>

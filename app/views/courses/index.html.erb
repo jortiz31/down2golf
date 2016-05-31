@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-12 large-centered columns">
     <hr>
-    <h2 class="text-center">Are You Down To Golf yet?</h2>
+    <h2 class="text-center">Are You Down To Golf?</h2>
     <hr>
   </div>
 </div>
@@ -14,9 +14,8 @@
         <%=link_to "See Course", course_show_path(Course.find(1)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(1).name.split.map(&:capitalize)*' ' %></h2>
-        <h4>Location: </h4>
-        <h4><i class="fi-compass"> - </i><strong><%= Course.find(1).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
+        <h3><%= Course.find(1).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(1).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(1).price) %></h4></strong>
       </div>
     </div>
@@ -28,9 +27,9 @@
         <%=link_to "See Course", course_show_path(Course.find(2)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(2).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(2).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(2).price) %></h5></strong>
+        <h3><%= Course.find(2).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(2).location.split.map(&:capitalize)*' ' %></strong></h4>
+        <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(2).price) %></h4></strong>
       </div>
     </div>
   </div>
@@ -45,9 +44,9 @@
         <%=link_to "See Course", course_show_path(Course.find(3)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(3).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(3).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(3).price) %></h5></strong>
+        <h3><%= Course.find(3).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(3).location.split.map(&:capitalize)*' ' %></strong></h4>
+        <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(3).price) %></h4></strong>
       </div>
     </div>
   </div>
@@ -58,9 +57,9 @@
         <%=link_to "See Course", course_show_path(Course.find(4)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(4).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(4).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(4).price) %></h5></strong>
+        <h3><%= Course.find(4).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(4).location.split.map(&:capitalize)*' ' %></strong></h4>
+        <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(4).price) %></h4></strong>
       </div>
     </div>
   </div>
@@ -75,22 +74,22 @@
         <%=link_to "See Course", course_show_path(Course.find(5)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(5).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(5).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(5).price) %></h5></strong>
+        <h3><%= Course.find(5).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(5).location.split.map(&:capitalize)*' ' %></strong></h4>
+        <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(5).price) %></h4></strong>
       </div>
     </div>
   </div>
-  <div class="large-6 medium-11 medium-centered small-12 columns">
+  <div class="large-6 medium-11 medium-centered small-centered columns">
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(6).image %>">
         <%=link_to "See Course", course_show_path(Course.find(6)), class: 'medium expanded button' %>
       </div>
       <div class="columns">
-        <h2><%= Course.find(6).name.split.map(&:capitalize)*' ' %> <br></h2>
-        <h4>Location: <strong><br><%= Course.find(6).location.split.map(&:capitalize)*' ' %></strong></h4> <br>
-        <h5>Price: <strong><%= number_to_currency(Course.find(6).price) %></h5></strong>
+        <h3><%= Course.find(6).name.split.map(&:capitalize)*' ' %></h3>
+        <h4><i class="fi-compass"> - </i><strong><%= Course.find(6).location.split.map(&:capitalize)*' ' %></strong></h4>
+        <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(6).price) %></h4></strong>
       </div>
     </div>
   </div>

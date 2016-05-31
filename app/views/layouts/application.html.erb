@@ -42,27 +42,26 @@
     </div>
   </div>
 
-<div class="row pad-down">
-  <div class="large-6 large-centered columns">
-
-<% if notice %>
-  <div class="success callout" data-closable="slide-out-right">
-    <p class="notice"><%= notice %></p>
-    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
+  <div class="row pad-down">
+    <div class="large-6 large-centered columns">
+      <% if notice %>
+      <div class="success callout" data-closable="slide-out-right">
+        <p class="notice text-center"><%= notice %></p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+      <% if alert %>
+      <div class="alert callout" data-closable="slide-out-right">
+        <p class="alert text-center"><%= alert %></p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-<% if alert %>
-  <div class="alert callout" data-closable="slide-out-right">
-    <p class="alert"><%= alert %></p>
-    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-<% end %>
-</div>
-</div>
 
 
 <%= yield %>
