@@ -7,7 +7,12 @@
   <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery.raty" %>
+  <%= javascript_include_tag "foundation" %>
+  <%= javascript_include_tag "bodyscript" %>
+
   <%= csrf_meta_tags %>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
@@ -53,9 +58,6 @@
 
 <%= yield %>
 
-<%= javascript_include_tag "jquery" %>
-<%= javascript_include_tag "foundation" %>
-<%= javascript_include_tag "bodyscript" %>
 
 
 </body>
