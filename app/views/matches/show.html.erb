@@ -1,6 +1,6 @@
 Title:<strong><%= @match.title %><br></strong>
 Time and Date:<strong><%= @match.timeanddate.strftime("%m/%d/%Y %H:%M")  %></strong><br>
-Course:<strong><%= link_to @match.course.name, course_show_path(@match.course) %></strong><br>
+Course:<strong><%= link_to @match.course.name, course_path(@match.course) %></strong><br>
 Users attending:<br>
 <% @match.users.each do |user| %>
   <strong><%= user.email %></strong><br>
@@ -10,17 +10,24 @@ Users attending:<br>
 <% else %>
   <strong><%= link_to 'leave', match_user_leave_path(@match, current_user) %></strong><br>
 <% end %>
+<div class = "row">
 Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+</div>
 Comments:<br>
-<% if current_user %>
-  <%= link_to "Comment on Match", new_match_comment_path(@match) %>
 <% @match.comments.each do |c| %>
-  <%= c.body %>
-    <% if current_user.id == c.user_id %>
-      <%= link_to "Delete Comment", comment_path(c), method: :delete %>
-    <% end %>
+  <h5><%= c.body %></h5>
+  Written By: <%= c.user.email %><br>
+  <% if current_user.id == c.user_id %>
+    <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
   <% end %>
+<% end %>
+<br>
+<% if current_user %>
+  <%= link_to "Comment on Match", new_match_comment_path(@match,@comment) %><br>
+<% end %>
+<% if current_user == @match.users.first %>
+  <%= link_to "delete match", match_path(@match), method: :delete %>
 <% end %>

@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_match, only: [:show, :update, :destroy]
   def new
     @match=Match.new
@@ -50,6 +51,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
+    redirect_to matches_path
   end
 
   private

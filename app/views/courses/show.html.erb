@@ -2,14 +2,15 @@
 <h3> <%= @course.location %></h3><br>
 <h3><%= @course.price %></h3><br>
 <h3><a href='<%= @course.url %>'> <%= @course.name %></a></h3><br>
-
+<div class = "row">
 Clubhouse? <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Conditions? <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Scenery? <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Worth? <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+</div>
 <img src="<%= @course.image %>"><br>
 Matches: <br><% @course.matches.each do |match| %>
-<%= link_to match.title, match_show_path(match) %><br>
+<%= link_to match.title, match_path(match) %><br>
 <%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
 <%= match.course.name %><br>
 <% end %><br>

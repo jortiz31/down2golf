@@ -1,5 +1,5 @@
 <% @matches.each do |match| %>
-  <%= link_to match.title, match_show_path(match) %><br>
+  <%= link_to match.title, match_path(match) %><br>
   <%= match.timeanddate.strftime("%m/%d/%Y %H:%M") %><br>
   <%= match.course.name %><br>
   <%= match.users %><br>

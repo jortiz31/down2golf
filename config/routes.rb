@@ -22,11 +22,11 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:new, :create]
   resources :matches do
+    resources :comments
     resources :users do
       get 'join'
       get 'leave'
     end
-    resources :comments
   end
   resources :courses do
     resources :matches do
@@ -37,7 +37,5 @@ Rails.application.routes.draw do
   resources :users do
     resources :matches
   end
-  get "/courses/:course_id", to: "courses#show", as: "course_show"
-  get "/matches/:match_id", to: "matches#show", as: "match_show"
   get '*path', to: 'courses#index'
 end

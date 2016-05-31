@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def new
-    @course = Course.find(params[:course_id])
+    puts "comment controller new action"
     @match = Match.find(params[:match_id])
     @comment = Comment.new
   end
@@ -12,9 +13,10 @@ class CommentsController < ApplicationController
   end
   def create
     @match= Match.find(params[:match_id])
-    @course = Course.find(params[:course_id])
+    # @course = Course.find(params[:course_id])
     if @match
       @comment = @match.comments.create(comment_params)
+      puts "comment created for match!"
       redirect_to @match
     end
     if @course
@@ -27,12 +29,15 @@ class CommentsController < ApplicationController
     render :edit
   end
   def update
+    @match= Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
   end
   def destroy
+    @match= Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
+    redirect_to @match
   end
 
 private
