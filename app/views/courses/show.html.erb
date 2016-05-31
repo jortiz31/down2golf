@@ -1,27 +1,29 @@
-<div class="row align-middle">
-  <div class="large-7 columns">
-    <img src="<%= @course.image %>">
+<div class="row">
+  <div class="large-8 large-centered small-10 small-centered columns">
+    <h1><%=@course.name.split.map(&:capitalize)*' '  %></h1>
+
   </div>
-  <div class="columns">
+
+</div>
+
+<div class="row align-middle">
+  <div class="large-7 medium-7 small-10 small-centered columns">
+    <img class="fixed-image" src="<%= @course.image %>">
+  </div>
+  <div class="large-5 medium-5 small-10 small-centered columns">
     <div class="map_container">
-      <div id="map" class="map"></div>
+      <div id="map" class="map thumbnail fixed-image"></div>
     </div>
   </div>
 </div>
 
-
-
 <div class="row">
   <div class="large-12 columns">
-    <h1><%=@course.name.split.map(&:capitalize)*' '  %></h1>
     <h3 id="location"> <%= @course.location.split.map(&:capitalize)*' '  %></h3>
     <h3><%= number_to_currency(@course.price) %></h3>
     <h3><%= @course.url %></h3>
   </div>
 </div>
-
-
-
 
 <div class="row">
   <div class="small-10 columns small-centered">
@@ -34,23 +36,21 @@
 </div>
 <div class="row">
 
-<h1><%=@course.name %></h1><br>
-<h3> <%= @course.location %></h3><br>
-<h3><%= @course.price %></h3><br>
-<h3><a href='<%= @course.url %>'> <%= @course.name %></a></h3><br>
 
-Clubhouse? <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Conditions? <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Scenery? <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Worth? <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-<img src="<%= @course.image %>"><br>
-Matches: <br><% @course.matches.each do |match| %>
-<%= link_to match.title, match_show_path(match) %><br>
-<%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
-<%= match.course.name %><br>
-<% end %><br>
-<%= link_to "create match at this course", new_match_path %>
+  Clubhouse? <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+  Conditions? <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+  Scenery? <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+  Worth? <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+  Matches: <br><% @course.matches.each do |match| %>
+  <%= link_to match.title, match_show_path(match) %><br>
+  <%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
+  <%= match.course.name %><br>
+  <% end %><br>
+  <%= link_to "create match at this course", new_match_path %>
 </div>
+
+
+
 <script>
 function initMap() {
   var myLatLng = {lat: -25.363, lng: 131.044};

@@ -12,22 +12,32 @@
   <%= javascript_include_tag "jquery.raty" %>
   <%= javascript_include_tag "chosen-jquery" %>
   <%= javascript_include_tag "foundation" %>
-  <%= javascript_include_tag "bodyscript" %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
   <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <% if user_signed_in? %>
+    <div class="title-bar-title"> <%= current_user.email  %>  </div>
+    <% else %>
+    <div class="title-bar-title">Menu</div>
+    <% end %>
+  </div>
   <div class="top-bar" id="main-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
+        <% if user_signed_in? %>
+        <li class="menu-text"><i class="fi-skull"> <%= current_user.email %> </i></li>
+        <% else %>
         <li class="menu-text"><i class="fi-skull">  Down 2 Golf? </i></li>
+        <% end %>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
           <% if user_signed_in? %>
-            <li><p class='user-text'><%=link_to current_user.email, current_user %></p></li>
             <li> <%= link_to "Courses", root_path %> </li>
             <li> <%= link_to "Matches", matches_path %> </li>
             <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
@@ -43,18 +53,19 @@
   </div>
 
   <div class="row pad-down">
-    <div class="large-6 large-centered columns">
+    <div class="large-6 columns large-centered">
       <% if notice %>
       <div class="success callout" data-closable="slide-out-right">
-        <p class="notice text-center"><%= notice %></p>
+        <p class="notice text-center"><i class="fi-check"></i><%= notice %></p>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <% end %>
+
       <% if alert %>
       <div class="alert callout" data-closable="slide-out-right">
-        <p class="alert text-center"><%= alert %></p>
+        <p class="alert text-center"><i class="fi-alert"></i><%= alert %></p>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -64,6 +75,8 @@
   </div>
 
 <%= yield %>
+
+
 
 </body>
 </html>
