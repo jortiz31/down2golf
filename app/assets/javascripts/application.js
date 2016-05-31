@@ -5,6 +5,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require chosen-jquery
+//= require ImageSelect.jquery
 //= require messages
 //= require foundation
 //= require foundation.min

@@ -6,7 +6,7 @@
       <% if conversation.is_trashed?(current_user) %>
         <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
       <% else %>
-        <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
+        <%= link_to 'Move to trash', conversation_destroy_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
                     data: {confirm: 'Are you sure?'} %>
 
         <% if conversation.is_unread?(current_user) %>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <p><%= render 'conversations/participant', conversation: conversation %></p>
+  <p><%= render 'conversations/participants', conversation: conversation %></p>
 
   <p><%= conversation.last_message.body %>
     <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
