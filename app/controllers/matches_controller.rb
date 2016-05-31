@@ -61,6 +61,6 @@ class MatchesController < ApplicationController
     end
 
     def match_params
-      params.require(:match).permit(:timeanddate, :title, :course_id)
+      params.require(:match).permit(:date, :time, :title, :course_id)
     end
 end
