@@ -3,24 +3,29 @@ Course:<strong><%= @match.course.name %><br></strong>
 Time and Date:<strong><%= @match.timeanddate.strftime("%m/%d/%Y %H:%M")  %></strong><br>
 Users attending:<br>
 <% @match.users.each do |user| %>
-                  <strong><%= user.email %></strong><br>
-                <% end %>
-                <% if current_user %>
-              <strong><%= link_to 'join', match_user_join_path(@match, current_user) %></strong>
-              <strong><%= link_to 'leave', match_user_leave_path(@match,current_user) %></strong><br>
-                <% end %>
-                Comments:<br>
-                <% @match.comments.each do |c| %>
-                <%= c.body %><br>
-                <% end %>
-              Company?<%= rating_for @match, "company", enable_half: true, disable_after_rate:true %>
-              <%= rating_for @match, "company",disabled_after_rate:true, readonly:true, imdb_avg: true %>
-              Fun Factor?<%= rating_for @match, "fun_factor", enable_half: true, disable_after_rate:true %>
-              <%= rating_for @match, "fun_factor",disabled_after_rate:true, readonly:true, imdb_avg: true %>
-              Competitiveness?<%= rating_for @match, "competitiveness", enable_half: true,disable_after_rate:true %>
-              <%= rating_for @match, "competitiveness",disabled_after_rate:true, readonly:true, imdb_avg: true %>
-              Play Again?<%= rating_for @match, "play_again", enable_half: true ,disable_after_rate:true%>
-              <%= rating_for @match, "play_again",disabled_after_rate:true, readonly:true, imdb_avg: true %><br>
+  <strong><%= user.email %></strong><br>
+<% end %>
+<% if current_user %>
+  <strong><%= link_to 'join', match_user_join_path(@match, current_user) %></strong>
+  <strong><%= link_to 'leave', match_user_leave_path(@match,current_user) %></strong><br>
+<% end %>
+Comments:<br>
+<% @match.comments.each do |c| %>
+  <% if current_user %>
+    <%= link_to "Comment on Match", new_match_comment_path(c) %>
+    <% if current_user.id == c.user_id %>
+      <%= link_to "Delete Comment", comment_path(c), method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>
+Company?<%= rating_for @match, "company", enable_half: true, disable_after_rate:true %>
+<%= rating_for @match, "company",disabled_after_rate:true, readonly:true, imdb_avg: true %>
+Fun Factor?<%= rating_for @match, "fun_factor", enable_half: true, disable_after_rate:true %>
+<%= rating_for @match, "fun_factor",disabled_after_rate:true, readonly:true, imdb_avg: true %>
+Competitiveness?<%= rating_for @match, "competitiveness", enable_half: true,disable_after_rate:true %>
+<%= rating_for @match, "competitiveness",disabled_after_rate:true, readonly:true, imdb_avg: true %>
+Play Again?<%= rating_for @match, "play_again", enable_half: true ,disable_after_rate:true%>
+<%= rating_for @match, "play_again",disabled_after_rate:true, readonly:true, imdb_avg: true %><br>
 <%= link_to "comment on match", new_match_comment_path(@match) %><br>
 <%= link_to "back to courses index", courses_path%><br>
 <%= link_to "back to matches index", matches_path %>

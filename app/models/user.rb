@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   ratyrate_rateable 'Humor', 'Skill_level', 'Sociability'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :comments
   has_many :matches, through: :usersmatches, dependent: :destroy
   has_many :usersmatches, class_name: Usermatch, dependent: :destroy
   def mailboxer_email(object)

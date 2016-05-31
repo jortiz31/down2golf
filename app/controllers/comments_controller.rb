@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def new
+    @course = Course.find(params[:course_id])
+    @match = Match.find(params[:match_id])
     @comment = Comment.new
   end
   def index
@@ -10,9 +12,16 @@ class CommentsController < ApplicationController
   end
   def create
     @match= Match.find(params[:match_id])
-    @comment = Comment.create(comment_params)
-    @match.comments << @comment
-    redirect_to match_path(@match)
+    @course = Course.find(params[:course_id])
+    if @match
+      @comment = @match.comments.create(comment_params)
+      redirect_to @match
+    end
+    if @course
+      @comment = @course.comments.create(comment_params)
+      redirect_to @course
+    end
+    current_user.comments << @comment
   end
   def edit
     render :edit
