@@ -1,4 +1,4 @@
-<%= simple_form_for @comment do |f| %>
+<%= simple_form_for [@match,@comment] do |f| %>
   <%= f.text_area :body, placeholder: "comment body" %>
   <%= f.submit "Comment!" %>
 <% end %>

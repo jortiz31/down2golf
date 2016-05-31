@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :matches
   end
+  resources :comments
   get "/courses/:course_id", to: "courses#show", as: "course_show"
   get "/matches/:match_id", to: "matches#show", as: "match_show"
   get '*path', to: 'courses#index'
