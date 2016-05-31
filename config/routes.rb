@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/signup", :to => "users/registrations#new", :as => :signup
     get "/logout", :to => "users/sessions#destroy", :as => :logout
   end
+
   resources :conversations, only: [:index, :show, :destroy] do
     member do
       post :reply

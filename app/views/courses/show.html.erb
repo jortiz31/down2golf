@@ -13,4 +13,4 @@ Matches: <br><% @course.matches.each do |match| %>
 <%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
 <%= match.course.name %><br>
 <% end %><br>
-<%= link_to "create match at this course", match_create_path %>
+<%= link_to "create match at this course", new_match_path %>
