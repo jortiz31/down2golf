@@ -13,64 +13,54 @@
   <%= javascript_include_tag "chosen-jquery" %>
   <%= javascript_include_tag "foundation" %>
   <%= javascript_include_tag "bodyscript" %>
-
   <%= csrf_meta_tags %>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
   <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-  <nav class="navbar navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to 'Down2Golf', root_path, class: 'navbar-brand' %>
-      </div>
-      <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-          <li><%= link_to 'Your Conversations', conversations_path %></li>
-          <li><%= link_to 'Log Out', logout_path%></li>
-        <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
-    <div class="title-bar-title">Menu</div>
-  </div>
-
   <div class="top-bar" id="main-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">Site Title</li>
+        <li class="menu-text"><i class="fi-skull">  Down 2 Golf? </i></li>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-        <li class="has-submenu">
-          <a href="#">One</a>
-          <ul class="submenu menu vertical" data-submenu>
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul>
+          <% if user_signed_in? %>
+            <li><p class='user-text'><%=link_to current_user.email, current_user %></p></li>
+            <li> <%= link_to "Courses", root_path %> </li>
+            <li> <%= link_to "Matches", matches_path %> </li>
+            <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+            <li><%= link_to 'Messages', conversations_path %></li>
+            <li><%= link_to 'Log Out', logout_path%></li>
+          <% else %>
+            <li> <%= link_to "Sign up", signup_path %> </li>
+            <li><%= link_to 'Log In', new_user_session_path %></li>
+          <% end %>
         </li>
-        <li><a href="#">Two</a></li>
-        <li><a href="#">Three</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="flash">
-    <% flash.each do |name, msg| %>
-      <p>
-        <small class="alert alert-info"> <%= name.capitalize %>: <%= msg %> </small>
-      </p>
-    <% end %>
+  <div class="row pad-down">
+    <div class="large-6 large-centered columns">
+      <% if notice %>
+      <div class="success callout" data-closable="slide-out-right">
+        <p class="notice text-center"><%= notice %></p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+      <% if alert %>
+      <div class="alert callout" data-closable="slide-out-right">
+        <p class="alert text-center"><%= alert %></p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% end %>
+    </div>
   </div>
 
 <%= yield %>

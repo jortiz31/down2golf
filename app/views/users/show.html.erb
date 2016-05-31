@@ -2,10 +2,7 @@
 <% end %> <%= @user.email %><br>
 <%= cl_image_tag (@user.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
 Created At: <%= @user.created_at %><br>
-Humor?<%= rating_for @user, "Humor", enable_half: true, disable_after_rate:true %>
-  <%= rating_for @user, "Humor",disabled:true, readonly:true, imdb_avg: true %>
-Skill Level?<%= rating_for @user, "Skill_level", enable_half: true ,disable_after_rate:true%>
-  <%= rating_for @user, "Skill_level",disabled:true, readonly:true, imdb_avg: true %>
-Sociability?<%= rating_for @user, "Sociability", enable_half: true ,disable_after_rate:true%>
-  <%= rating_for @user, "Sociability",disabled:true,readonly:true, imdb_avg: true %>
+Humor?<%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 <%=link_to "logout", logout_path%>

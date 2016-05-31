@@ -6,7 +6,7 @@
       <% if conversation.is_trashed?(current_user) %>
         <%= link_to 'Restore', restore_conversation_path(conversation), class: 'button primary', method: :post %>
       <% else %>
-        <%= link_to 'Move to trash', destroy_conversation_path(conversation), class: 'button small success', method: :delete,
+        <%= link_to 'Move to trash', conversation_path(conversation), class: 'button small success', method: :delete,
                     data: {confirm: 'Are you sure?'} %>
 
         <% if conversation.is_unread?(current_user) %>
