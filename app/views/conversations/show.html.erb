@@ -15,7 +15,6 @@
           <div class="media-left">
             <%= gravatar_for message.sender, { size: 45 } %>
           </div>
-
           <div class="media-body">
             <h6 class="media-heading"><%= message.sender.email %>
               says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>

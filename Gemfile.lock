@@ -47,6 +47,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    aws_cf_signer (0.1.3)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -67,6 +68,9 @@ GEM
       coffee-rails (>= 3.2)
       railties (>= 3.0)
       sass-rails (>= 3.2)
+    cloudinary (1.1.6)
+      aws_cf_signer
+      rest-client
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -92,6 +96,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gravatar (1.0)
     gravatar_image_tag (1.2.0)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -153,6 +158,8 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     ruby-graphviz (1.2.2)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -202,10 +209,13 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  carrierwave
   chosen-rails
+  cloudinary
   coffee-rails
   devise
   foundation-rails
+  gravatar
   gravatar_image_tag
   jbuilder (~> 2.0)
   jquery-turbolinks

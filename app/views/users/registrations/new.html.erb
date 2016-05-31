@@ -4,17 +4,16 @@
 <%= devise_error_messages! %>
 <%= f.label :email %><br />
 <%= f.email_field :email, autofocus: true %>
+<%= f.label :gravatar %>
+<%= f.file_field :gravatar %>
+<%= f.input :photo, as: :gravatar %>
 <%= f.label :password %>
 <% if @minimum_password_length %>
 <%= @minimum_password_length %>
 <% end %>
 <%= f.password_field :password, autocomplete: "off" %>
-
-
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
 <%= f.submit "Sign up" %>
 <% end %>
-
 <%= render "users/shared/links" %>

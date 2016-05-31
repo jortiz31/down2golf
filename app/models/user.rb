@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ratyrate_rater
   acts_as_messageable
+  mount_uploader :gravatar, GravatarUploader
   ratyrate_rateable 'Humor', 'Skill_level', 'Sociability'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

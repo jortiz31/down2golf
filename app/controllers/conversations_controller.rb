@@ -3,7 +3,6 @@ class ConversationsController < ApplicationController
   before_action :get_mailbox
   before_action :get_conversation, except: [:index, :empty_trash]
   before_action :get_box, only: [:index]
-
   def index
     if @box.eql? "inbox"
       @conversations = @mailbox.inbox
@@ -12,10 +11,8 @@ class ConversationsController < ApplicationController
     else
       @conversations = @mailbox.trash
     end
-
     @conversations = @conversations.paginate(page: params[:page], per_page: 10)
   end
-
   def show
   end
   def reply
@@ -24,11 +21,11 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path(@conversation)
   end
   def destroy
+    @conversation.destroy
     @conversation.move_to_trash(current_user)
     flash[:success] = 'The conversation was moved to trash.'
     redirect_to conversations_path
   end
-
   def restore
     @conversation.untrash(current_user)
     flash[:success] = 'The conversation was restored.'
@@ -46,19 +43,16 @@ class ConversationsController < ApplicationController
     flash[:success] = 'The conversation was marked as read.'
     redirect_to conversations_path
   end
-
   private
   def get_mailbox
     @mailbox ||= current_user.mailbox
   end
-
   def get_box
     if params[:box].blank? or !["inbox","sent","trash"].include?(params[:box])
       params[:box] = 'inbox'
     end
     @box = params[:box]
   end
-
   def get_conversation
     @conversation ||= @mailbox.conversations.find(params[:id])
   end

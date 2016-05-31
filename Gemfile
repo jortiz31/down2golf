@@ -25,7 +25,9 @@ gem "rails-erd", github: "voormedia/rails-erd"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'cloudinary'
+gem 'gravatar'
+gem 'carrierwave'
 gem 'simple_form'
 gem 'chosen-rails'
 gem 'coffee-rails'
