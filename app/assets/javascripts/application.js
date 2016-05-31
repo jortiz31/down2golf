@@ -10,6 +10,8 @@
 //= require messages
 //= require foundation
 //= require foundation.min
+//= require jquery-1.4.4.min
+//= require jquery.reveal
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
