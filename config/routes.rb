@@ -27,14 +27,17 @@ Rails.application.routes.draw do
       get 'join'
       get 'leave'
     end
+    resources :comments
   end
   resources :courses do
-    resources :matches
+    resources :matches do
+      resources :comments
+    end
+    resources :comments
   end
   resources :users do
     resources :matches
   end
-
   get "/courses/:course_id", to: "courses#show", as: "course_show"
   get "/matches/:match_id", to: "matches#show", as: "match_show"
   get '*path', to: 'courses#index'
