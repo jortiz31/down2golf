@@ -6,7 +6,7 @@
     <%= label_tag 'recipients', 'Choose recipients' %>
     <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
   </div>
-  
+
   <div class="form-group">
     <%= label_tag 'message[subject]', 'Subject' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
@@ -16,11 +16,6 @@
     <%= label_tag 'message[body]', 'Message' %>
     <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
   </div>
-
-  <div class="form-group">
-    <%= label_tag 'recipients', 'Choose recipients' %>
-    <%= select_tag 'recipients', recipients_options, multiple: true, class: 'form-control' %>
-  </div>
-
+  
   <%= submit_tag 'Send', class: 'btn btn-primary' %>
 <% end %>
