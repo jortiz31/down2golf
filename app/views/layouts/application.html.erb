@@ -7,13 +7,36 @@
   <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery.raty" %>
+  <%= javascript_include_tag "chosen-jquery" %>
+  <%= javascript_include_tag "foundation" %>
+  <%= javascript_include_tag "bodyscript" %>
+
   <%= csrf_meta_tags %>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
   <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Down2Golf', root_path, class: 'navbar-brand' %>
+      </div>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+          <li><%= link_to 'Your Conversations', conversations_path %></li>
+          <li><%= link_to 'Log Out', logout_path%></li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
   <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
@@ -63,13 +86,7 @@
     </div>
   </div>
 
-
 <%= yield %>
-
-<%= javascript_include_tag "jquery" %>
-<%= javascript_include_tag "foundation" %>
-<%= javascript_include_tag "bodyscript" %>
-
 
 </body>
 </html>

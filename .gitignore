@@ -5,7 +5,9 @@
 /log/*
 !/log/.keep
 /tmp
-=======
+#ignore cloudinary keys
+/config/cloudinary.yml
+
 *.rbc
 capybara-*.html
 .rspec
