@@ -26,5 +26,4 @@ Matches: <br><% @course.matches.each do |match| %>
 <% if current_user %>
   <%= link_to "Comment on Course", new_course_comment_path(@course,@comment) %><br>
 <% end %>
-<%= link_to "Comment on this course!", new_course_comment_path(@course) %><br>
 <%= link_to "create match at this course", new_match_path %>
