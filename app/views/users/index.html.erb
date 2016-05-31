@@ -1,11 +1,10 @@
 <% page_header "Users" %>
 
-<%= will_paginate %>
-
 <ul>
   <% @users.each do |user| %>
     <li>
-      <strong><%= user.name %></strong>
+      <%= cl_image_tag (user.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
+      <strong><%= user.email %></strong>
       <% unless current_user == user %>
         <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-default btn-sm' %>
       <% end %>

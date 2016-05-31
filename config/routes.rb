@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   root 'courses#index'
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions', registrations: 'registrations'
   }
   devise_scope :user do
     get '/sign_in', to: 'users/sessions#new'
