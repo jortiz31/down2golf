@@ -29,5 +29,6 @@ Comments:<br>
   <%= link_to "Comment on Match", new_match_comment_path(@match,@comment) %><br>
 <% end %>
 <% if current_user == @match.users.first %>
+  <%= link_to "edit match", edit_match_path(@match) %><br>
   <%= link_to "delete match", match_path(@match), method: :delete %>
 <% end %>

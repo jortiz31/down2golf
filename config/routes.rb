@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:new, :create]
   resources :matches do
-    resources :comments
+    resources :comments, controller: 'matchcomments'
     resources :users do
       get 'join'
       get 'leave'
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     resources :matches do
       resources :comments
     end
-    resources :comments
+    resources :comments, controller: 'coursecomments'
   end
   resources :users do
     resources :matches

@@ -4,4 +4,4 @@
   <div> <%= f.input :timeanddate, as: :time, html5: true %></div>
   <div> <%= f.input :course_id, collection: @courses.collect {|c| [ c.name, c.id ] }%> </div>
   <div> <%= f.submit "Submit", class: "button radius CreateMatchSubmitButton" %> </div>
-<% end %>s
+<% end %>

@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_match, only: [:show, :update, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :destroy]
   def new
     @match=Match.new
     @courses=Course.all
@@ -25,6 +25,7 @@ class MatchesController < ApplicationController
   end
 
   def edit
+    @courses=Course.all
     render :edit
   end
 
