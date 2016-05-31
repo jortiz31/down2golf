@@ -3,6 +3,9 @@
  */
 
 //= require jquery
+//= require jquery.turbolinks
+//= require chosen-jquery
+//= require messages
 //= require foundation
 //= require foundation.min
 //= require jquery.raty

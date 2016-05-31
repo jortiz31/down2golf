@@ -6,6 +6,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( jquery.raty.js )
 Rails.application.config.assets.precompile += %w( ratyrate.js.erb )
+Rails.application.config.assets.precompile += %w( chosen-jquery.js )
 Rails.application.config.assets.precompile += %w( foundation.js )
 Rails.application.config.assets.precompile += %w( bodyscript.js )
 

@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :matches, through: :usersmatches, dependent: :destroy
   has_many :usersmatches, class_name: Usermatch, dependent: :destroy
+  def mailboxer_email(object)
+    email
+  end
 end

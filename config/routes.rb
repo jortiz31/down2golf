@@ -10,7 +10,17 @@ Rails.application.routes.draw do
     get "/signup", :to => "users/registrations#new", :as => :signup
     get "/logout", :to => "users/sessions#destroy", :as => :logout
   end
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
+  resources :messages, only: [:new, :create]
   resources :matches do
     resources :users do
       get 'join'
