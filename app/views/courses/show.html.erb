@@ -1,29 +1,22 @@
-<h1><%=@course.name %></h1><br>
-<h3> <%= @course.location %></h3><br>
-<h3><%= @course.price %></h3><br>
-<h3><a href='<%= @course.url %>'> <%= @course.name %></a></h3><br>
-<div class = "row">
-Clubhouse? <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Conditions? <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Scenery? <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Worth? <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-</div>
-<img src="<%= @course.image %>"><br>
-Matches: <br><% @course.matches.each do |match| %>
-<%= link_to match.title, match_path(match) %><br>
-<%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
-<%= match.course.name %><br>
-<% end %><br>
+<img src="<%= @course.image %>">
+<h1><%=@course.name %></h1>
+<h3> <%= @course.location %></h3>
+<h3><%= @course.price %></h3>
+<h3><a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
+<h5> <% @course.matches.each do | match| %> </h5>
+<%= match.title %>
+<% end %>
+Comments:<br>
 <% @course.comments.each do |c| %>
   <h5><%= c.body %></h5>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>
     <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete %>
-    <%= link_to "Edit Comment", edit_course_comment_path(@course,c) %>
+    <%= link_to "Edit Comment", edit_course_comment_path(@course,c)%>
   <% end %>
 <% end %>
 <br>
 <% if current_user %>
   <%= link_to "Comment on Course", new_course_comment_path(@course,@comment) %><br>
 <% end %>
-<%= link_to "create match at this course", new_match_path %>
+<%= link_to "Create Match at this Course", new_match_path %>

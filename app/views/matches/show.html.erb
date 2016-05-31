@@ -22,6 +22,7 @@ Comments:<br>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>
     <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
+    <%= link_to "Edit Comment", edit_match_comment_path(@match,c) %>
   <% end %>
 <% end %>
 <br>

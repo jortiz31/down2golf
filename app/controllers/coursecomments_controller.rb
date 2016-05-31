@@ -2,7 +2,7 @@ class CoursecommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :set_course, only: [:new, :show, :edit, :create, :update, :destroy]
   def new
-    puts "comment controller new action"
+    puts "course comment controller new action"
     @comment = Comment.new
     render 'comments/new'
   end

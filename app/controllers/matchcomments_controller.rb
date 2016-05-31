@@ -2,8 +2,9 @@ class MatchcommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :set_match, only: [:create, :show, :edit, :update, :destroy, :new]
   def new
-    puts "comment controller new action"
+    puts "match comment controller new action"
     @comment = Comment.new
+    render 'comments/new'
   end
   def index
     @comments=Comment.all
@@ -35,7 +36,7 @@ class MatchcommentsController < ApplicationController
   private
 
   def set_match
-    @match = Match.find(params[:id])
+    @match = Match.find(params[:match_id])
   end
 
   def comment_params
