@@ -5,4 +5,3 @@ Created At: <%= @user.created_at %><br>
 Humor?<%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-<%=link_to "logout", logout_path%>
