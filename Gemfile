@@ -14,10 +14,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'angular-rails-templates'
-
 gem 'foundation-rails'
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -28,9 +25,18 @@ gem "rails-erd", github: "voormedia/rails-erd"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'jquery-rails'
+gem 'cloudinary'
+gem 'gravatar'
+gem 'carrierwave'
 gem 'simple_form'
-
+gem 'chosen-rails'
+gem 'coffee-rails'
+gem 'jquery-turbolinks'
+gem "mailboxer"
+gem 'ratyrate'
+gem 'gravatar_image_tag'
+gem 'will_paginate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

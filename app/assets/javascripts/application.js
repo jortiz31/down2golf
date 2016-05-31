@@ -3,15 +3,19 @@
  */
 
 //= require jquery
+//= require jquery_ujs
+//= require jquery.turbolinks
+//= require chosen-jquery
+//= require ImageSelect.jquery
+//= require messages
+//= require foundation
 //= require foundation.min
+//= require jquery-1.4.4.min
+//= require jquery.reveal
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
 
-
 console.log('application.js loaded');
-
-$(function(){
-  $(window).load(function() {
-    console.log('foundation loaded');
-    $(document).foundation();
-  });
-});
+$(document).foundation();
+console.log('foundation loaded');

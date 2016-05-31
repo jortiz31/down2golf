@@ -32,6 +32,25 @@
   </div>
 
 </div>
+<div class="row">
+
+<h1><%=@course.name %></h1><br>
+<h3> <%= @course.location %></h3><br>
+<h3><%= @course.price %></h3><br>
+<h3><a href='<%= @course.url %>'> <%= @course.name %></a></h3><br>
+
+Clubhouse? <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+Conditions? <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+Scenery? <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+Worth? <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+<img src="<%= @course.image %>"><br>
+Matches: <br><% @course.matches.each do |match| %>
+<%= link_to match.title, match_show_path(match) %><br>
+<%= match.timeanddate.strftime("%m/%d/%Y %H:%M")  %><br>
+<%= match.course.name %><br>
+<% end %><br>
+<%= link_to "create match at this course", new_match_path %>
+</div>
 <script>
 function initMap() {
   var myLatLng = {lat: -25.363, lng: 131.044};

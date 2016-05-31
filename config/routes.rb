@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root 'courses#index'
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions', registrations: 'registrations'
   }
   devise_scope :user do
     get '/sign_in', to: 'users/sessions#new'
@@ -9,14 +10,34 @@ Rails.application.routes.draw do
     get "/signup", :to => "users/registrations#new", :as => :signup
     get "/logout", :to => "users/sessions#destroy", :as => :logout
   end
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
+  resources :messages, only: [:new, :create]
   resources :matches do
     resources :users do
       get 'join'
       get 'leave'
     end
+    resources :comments
   end
-  resources :courses
-  resources :users
+  resources :courses do
+    resources :matches do
+      resources :comments
+    end
+    resources :comments
+  end
+  resources :users do
+    resources :matches
+  end
   get "/courses/:course_id", to: "courses#show", as: "course_show"
+  get "/matches/:match_id", to: "matches#show", as: "match_show"
   get '*path', to: 'courses#index'
 end
