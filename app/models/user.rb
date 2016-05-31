@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ratyrate_rater
+  acts_as_messageable
   ratyrate_rateable 'Humor', 'Skill_level', 'Sociability'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

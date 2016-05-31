@@ -27,8 +27,9 @@ gem "rails-erd", github: "voormedia/rails-erd"
 # gem 'capistrano-rails', group: :development
 
 gem 'simple_form'
-
+gem "mailboxer"
 gem 'ratyrate'
+gem 'will_paginate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
