@@ -1,8 +1,52 @@
-<img src="<%= @course.image %>">
-<h1><%=@course.name %></h1>
-<h3> <%= @course.location %></h3>
-<h3><%= @course.price %></h3>
-<h3><%= @course.url %></h3>
-<h5> <% @course.matches.each do | match| %> </h5>
-<%= match.title %>
-<% end %>
+<div class="row align-middle">
+  <div class="large-7 columns">
+    <img src="<%= @course.image %>">
+  </div>
+  <div class="columns">
+    <div class="map_container">
+      <div id="map" class="map"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%=@course.name.split.map(&:capitalize)*' '  %></h1>
+    <h3 id="location"> <%= @course.location.split.map(&:capitalize)*' '  %></h3>
+    <h3><%= number_to_currency(@course.price) %></h3>
+    <h3><%= @course.url %></h3>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="small-10 columns small-centered">
+    <p class="text-center">
+    </p> <% @course.matches.each do | match| %>
+    <%= match.title %>
+    <% end %>
+  </div>
+
+</div>
+<script>
+function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+  var location = document.getElementById('location').textContent;
+  console.log(location);
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGiFYWpvaKcbMBbaTZfjOiAWznTyVfxXc&callback=initMap" async defer></script>
