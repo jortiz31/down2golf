@@ -1,8 +1,8 @@
 class MatchcommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :set_match, only: [:create, :show, :edit, :update, :destroy, :new]
   def new
     puts "comment controller new action"
-    @match = Match.find(params[:match_id])
     @comment = Comment.new
   end
   def index
@@ -12,34 +12,31 @@ class MatchcommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
   def create
-    @match= Match.find(params[:match_id])
-    if @match
-      @comment = @match.comments.create(comment_params)
-      puts "comment created for match!"
-      redirect_to @match
-    end
-    if @course
-      @comment = @course.comments.create(comment_params)
-      redirect_to @course
-    end
+    @comment = @match.comments.create(comment_params)
+    puts "comment created for match!"
     current_user.comments << @comment
+    redirect_to @match
   end
   def edit
+    @comment = Comment.find(params[:id])
     render :edit
   end
   def update
-    @match= Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
+    redirect_to @match
   end
   def destroy
-    @match= Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to @match
   end
 
   private
+
+  def set_match
+    @match = Match.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:body)
