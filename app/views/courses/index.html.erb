@@ -9,7 +9,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(1).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(1)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(1)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(1).name.split.map(&:capitalize)*' ' %></h3>
@@ -23,7 +23,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(2).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(2)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(2)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(2).name.split.map(&:capitalize)*' ' %></h3>
@@ -40,7 +40,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(3).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(3)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(3)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(3).name.split.map(&:capitalize)*' ' %></h3>
@@ -54,7 +54,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(4).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(4)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(4)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(4).name.split.map(&:capitalize)*' ' %></h3>
@@ -71,7 +71,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(5).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(5)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(5)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(5).name.split.map(&:capitalize)*' ' %></h3>
@@ -85,7 +85,7 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(6).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(6)), class: 'success medium expanded button' %>
+        <%=link_to "See Course", course_path(Course.find(6)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(6).name.split.map(&:capitalize)*' ' %></h3>
