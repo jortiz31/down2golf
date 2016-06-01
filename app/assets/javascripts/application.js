@@ -6,12 +6,10 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require chosen-jquery
+//= require jquery.reveal
 //= require ImageSelect.jquery
 //= require messages
 //= require foundation.min
-//= require foundation
-//= require jquery-1.4.4.min
-//= require jquery.reveal
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .

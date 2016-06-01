@@ -27,7 +27,13 @@ Comments:<br>
 <% end %>
 <br>
 <% if current_user %>
-  <%= link_to "Comment on Match", new_match_comment_path(@match,@comment) %><br>
+  <strong><button class="button alert" data-open="commentModal">Comment on Match</button></strong>
+  <div class="reveal" id="commentModal" data-reveal>
+    <%= render 'comments/form' %>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div><br>
 <% end %>
 <% if current_user == @match.users.first %>
   <%= link_to "Edit Match", edit_match_path(@match) %><br>

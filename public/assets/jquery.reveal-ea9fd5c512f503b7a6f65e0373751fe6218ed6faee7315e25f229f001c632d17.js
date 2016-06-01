@@ -6,6 +6,8 @@
  * http://www.opensource.org/licenses/mit-license.php
 */
 
+
+
 (function($) {
 
 /*---------------------------
@@ -15,11 +17,13 @@
 /*---------------------------
  Listener for data-reveal-id attributes
 ----------------------------*/
-	$('a[data-reveal-id]').bind('click', function(e) {
+(function($) {
+	$('a[data-reveal-id]').on('click', function(e) {
 		e.preventDefault();
 		var modalLocation = $(this).attr('data-reveal-id');
 		$('#'+modalLocation).reveal($(this).data());
 	});
+})(jQuery);
 /*---------------------------
  Extend and Execute
 ----------------------------*/

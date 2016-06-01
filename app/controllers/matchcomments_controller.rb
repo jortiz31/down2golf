@@ -1,6 +1,6 @@
 class MatchcommentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :set_match, only: [:create, :show, :edit, :update, :destroy, :new]
+  before_action :set_match, only: [:create, :show, :edit, :update, :destroy, :new, :index]
   def new
     puts "match comment controller new action"
     @comment = Comment.new
