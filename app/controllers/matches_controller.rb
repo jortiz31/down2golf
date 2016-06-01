@@ -7,6 +7,8 @@ class MatchesController < ApplicationController
   end
 
   def index
+    @match= Match.new
+    @courses = Course.all
     @matches = Match.all
   end
 
