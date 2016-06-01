@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
     self.errors.add(:current_password, current_password.blank? ? :blank : :invalid)
     false
   end
-      clean_up_passwords
-      result
+    clean_up_passwords
+    result
   end
+
 end

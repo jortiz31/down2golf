@@ -7,7 +7,7 @@
     <%= link_to u.email, u %><br>
   <% end %>
 <% end %>
-<strong><a data-open="exampleModal1">New Match</a></strong>
+<strong><button class="button large info" data-open="exampleModal1">New Match</button></strong>
 <div class="reveal" id="exampleModal1" data-reveal>
   <%= render 'matches/form' %>
   <button class="close-button" data-close aria-label="Close modal" type="button">

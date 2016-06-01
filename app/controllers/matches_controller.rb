@@ -2,8 +2,11 @@ class MatchesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :set_match, only: [:show, :edit, :update, :destroy]
   def new
-    @match=Match.new
-    @courses=Course.all
+
+      @match=Match.new
+      @courses=Course.all
+
+
   end
 
   def index
@@ -19,12 +22,15 @@ class MatchesController < ApplicationController
 
   def create
     @comment = Comment.new
-    @match = Match.new(match_params)
-    current_user.matches << @match
-    if @match.save
-      render :show, status: :created, location: @match
-    else
-      render json: @match.errors, status: :unprocessable_entity
+    if current_user.premium?
+      @match = Match.new(match_params)
+      current_user.matches << @match
+    elsif current_user.matches.count >= 5
+      flash[:notice]="Sign up for premium in order to create more than 5 matches!"
+      redirect_to matches_path
+    elsif current_user.matches.count < 5
+      @match=Match.new(match_params)
+      current_user.matches << @match
     end
   end
 
