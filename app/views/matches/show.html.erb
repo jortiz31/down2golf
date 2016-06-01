@@ -6,9 +6,9 @@ Users attending:<br>
   <strong><%= user.email %></strong><br>
 <% end %>
 <% if !@match.users.include? current_user %>
-  <strong><%= link_to 'join', match_user_join_path(@match, current_user) %></strong><br>
+  <strong><%= link_to 'Join', match_user_join_path(@match, current_user) %></strong><br>
 <% else %>
-  <strong><%= link_to 'leave', match_user_leave_path(@match, current_user) %></strong><br>
+  <strong><%= link_to 'Leave', match_user_leave_path(@match, current_user) %></strong><br>
 <% end %>
 <div class = "row">
 Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
@@ -30,6 +30,6 @@ Comments:<br>
   <%= link_to "Comment on Match", new_match_comment_path(@match,@comment) %><br>
 <% end %>
 <% if current_user == @match.users.first %>
-  <%= link_to "edit match", edit_match_path(@match) %><br>
-  <%= link_to "delete match", match_path(@match), method: :delete %>
+  <%= link_to "Edit Match", edit_match_path(@match) %><br>
+  <%= link_to "Delete Match", match_path(@match), method: :delete %>
 <% end %>

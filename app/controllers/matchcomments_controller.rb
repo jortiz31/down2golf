@@ -20,7 +20,7 @@ class MatchcommentsController < ApplicationController
   end
   def edit
     @comment = Comment.find(params[:id])
-    render :edit
+    render 'comments/edit'
   end
   def update
     @comment = Comment.find(params[:id])

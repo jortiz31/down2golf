@@ -1,4 +1,5 @@
-$menu-background: #333;
+
+$menu-background: #c0392b;
 
 @import url(https://fonts.googleapis.com/css?family=Marvel:400,700);
 
@@ -37,7 +38,7 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 
 @media only screen and (min-width: 40em) {
   .menu:last-child {
-    border-left: 1px solid #4e4e4e;
+    border-left: 1px solid #fff;
   }
 
   .menu:first-child {
@@ -46,7 +47,7 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 
   .menu {
     li:not(:last-child) {
-      border-right: 1px solid #4e4e4e;
+      border-right: 1px solid #fff;
     }
   }
 }
@@ -84,4 +85,34 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   margin-top: 12px;
   padding-right: 17px;
   color: #fff;
+}
+
+.callout.alert {
+  border: 3px solid #D91E18;
+  border-radius: 5px;
+  background-color:rgba(217, 30, 24, 0.2);
+  font-size: 1em;
+}
+
+.callout.success {
+  border: 3px solid #1E824C;
+  border-radius: 5px;
+  background-color:rgba(30, 130, 76, 0.2);
+}
+
+
+.callout {
+  i {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: .2em .4em;
+    margin-right: 0.8rem;
+  }
+}
+
+.menu {
+  li {
+    text-align: center;
+  }
 }
