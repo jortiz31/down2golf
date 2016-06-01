@@ -23,7 +23,9 @@ gem "rails-erd", github: "voormedia/rails-erd"
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'braintree'
+gem 'gon', '~> 5.1.2'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'figaro', '~> 0.7.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'

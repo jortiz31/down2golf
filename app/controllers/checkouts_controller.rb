@@ -1,5 +1,6 @@
-
 class CheckoutsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+  before_action :authenticate_user!
   TRANSACTION_SUCCESS_STATUSES = [
     Braintree::Transaction::Status::Authorizing,
     Braintree::Transaction::Status::Authorized,
@@ -12,6 +13,7 @@ class CheckoutsController < ApplicationController
 
   def new
     @client_token = Braintree::ClientToken.generate
+    gon.client_token = @client_token
   end
 
   def show
@@ -27,7 +29,6 @@ class CheckoutsController < ApplicationController
       amount: amount,
       payment_method_nonce: nonce,
     )
-
     if result.success? || result.transaction
       redirect_to checkout_path(result.transaction.id)
     else

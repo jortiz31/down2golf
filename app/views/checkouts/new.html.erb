@@ -2,30 +2,20 @@
   <div class="checkout container">
     <div class="content">
 
-      <header>
-        <h1>Hi, <br>Let's test a transaction</h1>
-        <p>
-          Make a test payment with Braintree using PayPal or a card
-        </p>
-      </header>
-
-      <%= form_tag("/checkouts", method: "post", id: "payment-form") do %>
-        <section>
-          <div class="bt-drop-in-wrapper">
-            <div id="bt-dropin"></div>
-          </div>
-
+      <div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+        <h2 class="mbs">New Transaction</h2>
+        <%= form_tag checkouts_path do%>
+          <p>Please enter your payment details:</p>
           <label for="amount">
             <span class="input-label">Amount</span>
             <div class="input-wrapper amount-wrapper">
-              <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+              <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="">
             </div>
           </label>
-        </section>
-
-        <button class="button" type="submit"><span>Test Transaction</span></button>
-      <% end %>
-
+          <div id="dropin"></div>
+          <%=submit_tag "Pay", class: "button large success" %>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
