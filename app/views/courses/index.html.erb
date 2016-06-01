@@ -60,7 +60,7 @@
         <h3><%= Course.find(4).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(4).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(4).price) %></h4></strong>
-        <p>Matches being played: </p>  <%= Course.find(4).matches.count %>
+        <p>Matches being played: <%= Course.find(4).matches.count %></p>
       </div>
     </div>
   </div>
