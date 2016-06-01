@@ -1,5 +1,5 @@
 <% conversation.participants.each do |participant| %>
   <% unless participant == current_user %>
-    <%= cl_image_tag (current_user.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
+    <%= cl_image_tag (participant.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
   <% end %>
 <% end %>

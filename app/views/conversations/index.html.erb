@@ -1,7 +1,7 @@
 <% page_header "Your Conversations" %>
 
 <div class="row">
-  <div class="small-3 columns">
+  <div class="small-3 large-3 medium-3 column">
     <ul class="side-nav">
       <%= mailbox_section 'inbox', @box %>
       <%= mailbox_section 'sent', @box %>
@@ -15,15 +15,14 @@
       </div>
     </ul>
   </div>
-  <div class="small-9 columns">
-    <% if @box == 'trash' %>
-      <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
-                     data: {confirm: 'Are you sure?'} %></p>
-    <% end %>
-    <ul class="list-group">
+  <div class="small-9 large-9 medium-9 column">
+    <ul>
       <%= render partial: 'conversations/conversation', collection: @conversations %>
     </ul>
-
+    <% if @box == 'trash' %>
+      <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
+                     data: {confirm: 'Are you sure?'} %>
+    <% end %>
     <%= will_paginate %>
   </div><br>
 </div>
