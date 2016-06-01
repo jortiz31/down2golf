@@ -7,10 +7,10 @@ class CoursecommentsController < ApplicationController
     render 'comments/new'
   end
   def index
-    @comments=Comment.all
+    @comments=@course.comments
   end
   def show
-    @comment = Comment.find(params[:id])
+    @comment=Comment.new
   end
   def create
     @comment = @course.comments.create(comment_params)
