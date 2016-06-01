@@ -4,6 +4,8 @@ prepend_before_filter :require_no_authentication, only: [:cancel ]
 # prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   def new
     super
+    @client_token = Braintree::ClientToken.generate(
+      :customer_id => a_customer_id)
   end
 
   def create

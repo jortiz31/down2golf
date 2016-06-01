@@ -37,5 +37,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :matches
   end
+  resources :checkouts,  only: [:new, :create, :show]
   get '*path', to: 'courses#index'
 end

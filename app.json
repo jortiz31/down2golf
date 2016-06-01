@@ -1,0 +1,29 @@
+
+{
+  "name": "Down2Golf",
+  "description": "An example Braintree integration for Ruby on Rails",
+  "keywords": ["braintree", "ruby", "rails"],
+  "website": "https://www.braintreepayments.com",
+  "repository": "https://github.com/jortiz31/down2golf",
+  "logo": "https://avatars1.githubusercontent.com/u/3453",
+  "success_url": "/",
+  "env": {
+    "BT_ENVIRONMENT": {
+      "description": "Down2Golf sandbox environment",
+      "required": true,
+      "value": "sandbox"
+    },
+    "BT_MERCHANT_ID": {
+      "description": "4k9hh4xt85znmh36",
+      "required": true
+    },
+    "BT_PUBLIC_KEY": {
+      "description": "226gdy7837xr6kx4",
+      "required": true
+    },
+    "BT_PRIVATE_KEY": {
+      "description": "78d596182e22fb00cbd9173d8153a3dc",
+      "required": true
+    }
+  }
+}
