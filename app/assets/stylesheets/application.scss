@@ -7,6 +7,7 @@
  *= require chosen
  *= require main
  *= require map
+ *= require reveal
  *= require ImageSelect
 
  */
@@ -27,4 +28,7 @@
    overflow-y: auto;
    margin-bottom: 1em;
    margin-top: 1em;
+ }
+ .chosen-container{
+   width: 100% !important;
  }
