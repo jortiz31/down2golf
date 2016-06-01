@@ -1,11 +1,11 @@
-<% if @match %>
-  <%= simple_form_for [@match,@comment] do |f| %>
-    <%= f.text_area :body, placeholder: "comment body" %>
-    <%= f.submit "Comment on match!" %>
-  <% end %>
-<% else %>
+<% if @course %>
   <%= simple_form_for [@course,@comment] do |f| %>
     <%= f.text_area :body, placeholder: "comment body" %>
-    <%= f.submit "Comment on course!" %>
+    <%= f.submit "Comment on Course!", class: "button warning" %>
+  <% end %>
+<% elsif @match %>
+  <%= simple_form_for [@match,@comment] do |f| %>
+    <%= f.text_area :body, placeholder: "comment body"  %>
+    <%= f.submit "Comment on Match!" , class:"button warning"%>
   <% end %>
 <% end %>

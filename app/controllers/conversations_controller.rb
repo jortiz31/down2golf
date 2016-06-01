@@ -10,6 +10,7 @@ class ConversationsController < ApplicationController
       @conversations = @mailbox.sentbox
     else
       @conversations = @mailbox.trash
+      p @conversations
     end
     @conversations = @conversations.paginate(page: params[:page], per_page: 10)
   end

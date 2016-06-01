@@ -1,24 +1,18 @@
-<li class="list-group-item clearfix">
-  <%= link_to conversation.subject, conversation_path(conversation) %>
 
-  <div class="button-group vertical pull-right">
-    <div class="vertical pull-right">
+  <div class="small-3 columns large-3 medium-3">
+    <%= render 'conversations/participants', conversation: conversation %>
+  </div>
+  <%= link_to conversation.subject, conversation_path(conversation) %>
+  <%= conversation.last_message.body %>
+  <small><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></small>
+    <div class = "columns end">
       <% if conversation.is_trashed?(current_user) %>
         <%= link_to 'Restore', restore_conversation_path(conversation), class: 'button primary', method: :post %>
       <% else %>
-        <%= link_to 'Move to trash', conversation_path(conversation), class: 'button small success', method: :delete,
-                    data: {confirm: 'Are you sure?'} %>
-
+        <%= link_to 'Move to trash', conversation_path(conversation), class: 'button small success', method: :delete, data: {confirm: 'Are you sure?'} %>
         <% if conversation.is_unread?(current_user) %>
-          <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation),
-                      class: 'button secondary small', method: :post %>
+          <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: 'button secondary small', method: :post %>
         <% end %>
       <% end %>
     </div>
   </div>
-
-  <p><%= render 'conversations/participants', conversation: conversation %></p>
-
-  <p><%= conversation.last_message.body %>
-    <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
-</li>
