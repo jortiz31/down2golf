@@ -92,29 +92,6 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   color: #fff;
 }
 
-.callout.alert {
-  border: 3px solid #D91E18;
-  border-radius: 5px;
-  background-color:rgba(217, 30, 24, 0.2);
-  font-size: 1em;
-}
-
-.callout.success {
-  border: 3px solid #1E824C;
-  border-radius: 5px;
-  background-color:rgba(30, 130, 76, 0.2);
-}
-
-
-.callout {
-  i {
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    padding: .2em .4em;
-    margin-right: 0.8rem;
-  }
-}
 
 .menu {
   li {
@@ -125,4 +102,27 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 .userimg {
   max-width: 100%;
   max-height: 100%;
+}
+
+// MAILBOX CSS
+
+.pricing-table {
+  border: solid 1px #DDDDDD;
+
+  li {
+    border-bottom: dotted 1px #DDDDDD;
+    font-size: 1.15rem;
+    padding: 0.875rem 1.125rem;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .title {
+    background-color: #2ecc71;
+    color: #EEEEEE;
+    font-size: 0.875rem;
+    border-bottom: 0;
+  }
+
 }

@@ -1,28 +1,33 @@
-<% page_header "Your Conversations" %>
 
 <div class="row">
-  <div class="small-3 large-3 medium-3 column">
-    <ul class="side-nav">
+  <div class="column medium-6 large-6 small-10 small-centered large-centered medium-centered">
+    <ul class="pricing-table no-bullet text-center">
+      <li class="title">Conversations</li>
       <%= mailbox_section 'inbox', @box %>
       <%= mailbox_section 'sent', @box %>
       <%= mailbox_section 'trash', @box %>
-      <p><a data-open="exampleModal1">New Message</a></p>
-      <div class="reveal" id="exampleModal1" data-reveal>
-        <%= render 'messages/new' %>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+      <li><a data-open="exampleModal1" class="large expanded button">New Message</a></li>
     </ul>
   </div>
-  <div class="small-9 large-9 medium-9 column">
-    <ul>
-      <%= render partial: 'conversations/conversation', collection: @conversations %>
-    </ul>
-    <% if @box == 'trash' %>
-      <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete,
-                     data: {confirm: 'Are you sure?'} %>
-    <% end %>
-    <%= will_paginate %>
-  </div><br>
+</div>
+
+
+<div class="row">
+
+<div class="column medium-9 large-11 small-10 small-centered large-centered medium-centered">
+  <%= render partial: 'conversations/conversation', collection: @conversations %>
+  <% if @box == 'trash' %>
+  <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+  <%= will_paginate %>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="reveal" id="exampleModal1" data-reveal>
+  <%= render 'messages/new' %>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
