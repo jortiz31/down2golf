@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
+  before_action :set_match, only: [:show, :edit, :update, :destroy]
   def new
     @match=Match.new
     @courses=Course.all
@@ -24,6 +25,7 @@ class MatchesController < ApplicationController
   end
 
   def edit
+    @courses=Course.all
     render :edit
   end
 
@@ -50,6 +52,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
+    redirect_to matches_path
   end
 
   private
@@ -58,6 +61,6 @@ class MatchesController < ApplicationController
     end
 
     def match_params
-      params.require(:match).permit(:timeanddate, :title, :course_id)
+      params.require(:match).permit(:date, :time, :title, :course_id)
     end
 end

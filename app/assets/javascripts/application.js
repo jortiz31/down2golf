@@ -20,4 +20,4 @@ console.log('application.js loaded');
 $(document).ready(function(){
   $(document).foundation();
   console.log('foundation loaded');
-})
+});

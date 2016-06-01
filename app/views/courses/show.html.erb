@@ -21,9 +21,10 @@
   <div class="large-12 columns">
 
     <h3><%= number_to_currency(@course.price) %></h3>
-    <h3><%= @course.url %></h3>
+    <h3><a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
   </div>
 </div>
+
 
 <div class="row">
   <div class="large-8 columns">
@@ -42,8 +43,22 @@ Worth: <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:tru
   <%= link_to "create match at this course", new_match_path %>
 
 </div>
-</div>
 
+</div>
+Comments:<br>
+<% @course.comments.each do |c| %>
+  <h5><%= c.body %></h5>
+  Written By: <%= c.user.email %><br>
+  <% if current_user.id == c.user_id %>
+    <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete %>
+    <%= link_to "Edit Comment", edit_course_comment_path(@course,c)%>
+  <% end %>
+<% end %>
+<br>
+<% if current_user %>
+  <%= link_to "Comment on Course", new_course_comment_path(@course,@comment) %><br>
+<% end %>
+<%= link_to "Create Match at this Course", new_match_path %>
 
 
 

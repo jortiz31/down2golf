@@ -1,7 +1,7 @@
 <%= simple_form_for @match do |f| %>
   <div> <%= f.text_field :title, placeholder: "Title" %></div>
-  <div> <%= f.input :timeanddate, as: :date, html5: true %></div>
-  <div> <%= f.input :timeanddate, as: :time, html5: true %></div>
+  <div> <%= f.input :date, as: :date, html5: true %></div>
+  <div> <%= f.input :time, as: :time, html5: true %></div>
   <div> <%= f.input :course_id, collection: @courses.collect {|c| [ c.name, c.id ] }%> </div>
   <div> <%= f.submit "Submit", class: "button radius CreateMatchSubmitButton" %> </div>
-<% end %>s
+<% end %>
