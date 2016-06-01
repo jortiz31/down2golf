@@ -1,38 +1,62 @@
-<div class="row">
-  <div class="large-6 columns large centered">
-    <% if current_user==@user %>
-    <% end %> <h3> <%= @user.username %> </h3>
-  </div>
 
-</div>
 
+<div class="row align-center">
+  <div class="column small-12 small-centered large-5 larged-centered medium-8 medium-centered">
+    <div class="callout">
+
+    <%= @user.username %> <br>
+    <%= cl_image_tag (@user.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %>
+
+    <h5>Joined On: <small><%= @user.created_at.strftime("%m/%d/%Y") %></small></h5>
+    <h5>Email: <small><%= @user.email %></small></h5>
 
     <div class="row">
-      <div class="large-6 columns large-centered">
-        <div class="row">
-          <div class="small-3 columns">
-            <%= cl_image_tag (@user.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %>
-          </div>
-          <div class="small-9 columns">
-            <h5>Joined On: <small><%= @user.created_at.strftime("%m/%d/%Y") %></small></h5>
-            <h5>Email: <small><%= @user.email %></small></h5>
-          </div>
-        </div>
-      </div>
+
+      Humor?<%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
     </div>
 
+  </div>
 
-
-
-
-
-
-
-
-
-
-    <div class="row">
-Humor?<%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+  </div>
 </div>
+
+<div class="row">
+  <div class="large-6 medium-8 small-12 large-centered medium-centered columns">
+    <% if @user.matches.length == 0 %>
+    <h4 class="text-center"> <%= @user.username.capitalize %> is not playing in any matches.</h4>
+    <% else %>
+    <h4 class="text-center"> <%= @user.username.capitalize %> - Matches: <%= @user.matches.count %> </h4>
+
+  <div class="callout">
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th width="200">Match Name:</th>
+            <th>Date:</th>
+            <th width="150">Time:</th>
+            <th width="150">Course:</th>
+          </tr>
+        </thead>
+      <% @user.matches.each do |m| %>
+      <%= m.title %>
+      <%= m.date.strftime("%m/%d/%Y") %>
+      <%= m.time.strftime("%H:%M") %>
+      <%= m.course.name  %> <br>
+      <% end %>
+
+
+
+
+    </table>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+<% end %>
