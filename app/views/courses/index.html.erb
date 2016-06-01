@@ -1,7 +1,6 @@
-<div class="row">
+<div class="row pad-down">
   <div class="large-12 large-centered columns">
-    <h2 class="text-center">Are You Down To Golf?</h2>
-    <hr>
+    <h2 class="text-center">Golf Courses</h2>
   </div>
 </div>
 
@@ -10,12 +9,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(1).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(1)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(1)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(1).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(1).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(1).price) %></h4></strong>
+        <p>Matches being played: <%= Course.find(1).matches.count %></p>
       </div>
     </div>
   </div>
@@ -23,12 +23,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(2).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(2)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(2)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(2).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(2).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(2).price) %></h4></strong>
+        <p>Matches being played: <%= Course.find(2).matches.count %></p>
       </div>
     </div>
   </div>
@@ -39,12 +40,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(3).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(3)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(3)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(3).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(3).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(3).price) %></h4></strong>
+        <p>Matches being played: <%= Course.find(3).matches.count %></p>
       </div>
     </div>
   </div>
@@ -52,12 +54,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(4).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(4)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(4)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(4).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(4).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(4).price) %></h4></strong>
+        <p>Matches being played: </p>  <%= Course.find(4).matches.count %>
       </div>
     </div>
   </div>
@@ -68,12 +71,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(5).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(5)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(5)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(5).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(5).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(5).price) %></h4></strong>
+        <p>Matches being played: <%= Course.find(5).matches.count %></p>
       </div>
     </div>
   </div>
@@ -81,12 +85,13 @@
     <div class="row align-middle">
       <div class="small-7 columns">
         <img class="fixed-image thumbnail" src= "<%= Course.find(6).image %>">
-        <%=link_to "See Course", course_show_path(Course.find(6)), class: 'medium expanded button' %>
+        <%=link_to "See Course", course_show_path(Course.find(6)), class: 'success medium expanded button' %>
       </div>
       <div class="columns">
         <h3><%= Course.find(6).name.split.map(&:capitalize)*' ' %></h3>
         <h4><i class="fi-compass"> - </i><strong><%= Course.find(6).location.split.map(&:capitalize)*' ' %></strong></h4>
         <h4><i class="fi-dollar-bill"> - </i><strong><%= number_to_currency(Course.find(6).price) %></h4></strong>
+        <p>Matches being played: <%= Course.find(6).matches.count %></p>
       </div>
     </div>
   </div>

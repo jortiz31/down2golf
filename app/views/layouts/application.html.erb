@@ -20,7 +20,7 @@
   <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
     <button class="menu-icon" type="button" data-toggle></button>
     <% if user_signed_in? %>
-    <div class="title-bar-title"> <%= current_user.email  %>  </div>
+    <div class="title-bar-title"><%=link_to current_user.email, current_user  %> </div>
     <% else %>
     <div class="title-bar-title">Menu</div>
     <% end %>
@@ -29,7 +29,7 @@
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <% if user_signed_in? %>
-        <li class="menu-text"><i class="fi-skull"> <%= current_user.email %> </i></li>
+        <li class="menu-text"><i class="fi-skull"> <%=link_to current_user.email, current_user  %> </i></li>
         <% else %>
         <li class="menu-text"><i class="fi-skull">  Down 2 Golf? </i></li>
         <% end %>
@@ -53,7 +53,7 @@
   </div>
 
   <div class="row pad-down">
-    <div class="large-6 columns large-centered">
+    <div class="large-6 medium-6 columns large-centered medium-centered">
       <% if notice %>
       <div class="success callout" data-closable="slide-out-right">
         <p class="notice text-center"><i class="fi-check"></i><%= notice %></p>
