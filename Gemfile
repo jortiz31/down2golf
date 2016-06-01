@@ -22,7 +22,7 @@ gem 'devise'
 gem "rails-erd", github: "voormedia/rails-erd"
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'omniauth-venmo'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
