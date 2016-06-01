@@ -18,6 +18,7 @@ class MatchesController < ApplicationController
   end
 
   def create
+    @comment = Comment.new
     @match = Match.new(match_params)
     current_user.matches << @match
     if @match.save

@@ -22,10 +22,41 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="large-6 medium-8 small-12 large-centered medium-centered columns">
-    <h4 class="text-center">MESSAAGES</h4>
+    <% if @user.matches.length == 0 %>
+    <h4 class="text-center"> <%= @user.username.capitalize %> is not playing in any matches.</h4>
+    <% else %>
+    <h4 class="text-center"> <%= @user.username.capitalize %> - Matches: <%= @user.matches.count %> </h4>
+
+  <div class="callout">
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th width="200">Match Name:</th>
+            <th>Date:</th>
+            <th width="150">Time:</th>
+            <th width="150">Course:</th>
+          </tr>
+        </thead>
+      <% @user.matches.each do |m| %>
+      <%= m.title %>
+      <%= m.date.strftime("%m/%d/%Y") %>
+      <%= m.time.strftime("%H:%M") %>
+      <%= m.course.name  %> <br>
+      <% end %>
+
+
+
+
+    </table>
+    </div>
   </div>
 
+
+
 </div>
+</div>
+
+<% end %>
