@@ -4,27 +4,26 @@
   </div>
 </div>
 <% @matches.each do |match| %>
-<div class="row pad-down">
-  <div class="medium-6 medium-centered columns">
-    <div class="box">
-      <div class="box-icon">
-        <span class="fi-flag"></span>
-      </div>
-      <div class="info">
-        <h4 class="text-center"><%= link_to match.title, match %></h4>
-        <h3><br></h3>
-        Tee Time: <strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%I:%M:%P") %></strong><br>
-        Course: <strong><%= match.course.name %><br></strong>
-        Users Attending:
-        <% match.users.each do |u| %>
-        <%= link_to u.email, u%>
-        <% end %>
+  <div class="row pad-down">
+    <div class="medium-6 medium-centered columns">
+      <div class="box">
+        <div class="box-icon">
+          <span class="fi-flag"></span>
+        </div>
+        <div class="info">
+          <h4 class="text-center"><%= link_to match.title, match %></h4>
+          <h3><br></h3>
+          Tee Time: <strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%I:%M:%P") %></strong><br>
+          Course: <strong><%= match.course.name %><br></strong>
+          Users Attending:
+          <% match.users.each do |u| %>
+          <%= link_to u.email, u%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <% end %>
-
 <div class="row">
   <div class="large-6 medium-4 small-3 large-centered medium-centered small-centered columns">
     <%= will_paginate @matches, class:'pagination text-center', label:'pagination' %>
@@ -34,6 +33,5 @@
 <div class="reveal" id="exampleModal1" data-reveal>
   <%= render 'matches/form' %>
   <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div><br>
+    <span aria-hidden="true">&times;</span></button>
+</div>
