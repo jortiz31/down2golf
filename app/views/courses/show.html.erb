@@ -47,27 +47,33 @@
     </div><br>
   </div>
 </div>
-<div class="row">
-  <div class="small-12 columns large-12 medium-12">
-    <h3>Comments:</h3>
-    <% @comments = @course.comments.order(created_at: :desc)%>
-    <% @comments.each do |c| %>
-      <br><h5><%= c.body %></h5>
-      Written By: <%= c.user.email %><br>
-      <% if current_user.id == c.user_id %>
-        <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete, class:"button warning small" %>
-        <%= link_to "Edit Comment", edit_course_comment_path(@course,c), class:"button secondary small"%>
+<% if @course.comments.length > 0 %>
+  <div class="row pad-down">
+    <div class="large-7 large-centered columns">
+      <h3><i class="fi-comments"></i>  Comments:</h3>
+      <div class="callout">
+        <% @comments = @course.comments.order(created_at: :desc) %>
+        <% @comments.each do |c| %>
+          <div class="row">
+            <div class="small-8 columns">
+              <h5><%= c.body %></h5>
+              <h5>Written By: <small><%=link_to c.user.email.capitalize, c.user %></small></h5>
+            </div>
+          </div>
+          <% if current_user.id == c.user_id %>
+            <%= link_to "Delete Comment", match_comment_path(@course,c), method: :delete, class:"button small warning" %>
+            <%= link_to "Edit Comment", edit_match_comment_path(@course,c), class:"button secondary small" %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %><br>
     <% if current_user %>
-      <strong><button class="button success" data-open="commentModal">Comment on Course</button></strong>
-      <div class="reveal" id="commentModal" data-reveal>
-        <%= render 'comments/form' %>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span></button>
-      </div><br>
-    <% end %><br>
-  </div>
+  <strong><button class="button success" data-open="commentModal">Comment on Course</button></strong>
+    <div class="reveal" id="commentModal" data-reveal>
+      <%= render 'comments/form' %>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span></button>
+    </div><br>
+  <% end %>
 </div>
 
 <script>
