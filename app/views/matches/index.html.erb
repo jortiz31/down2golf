@@ -1,44 +1,41 @@
 <% @matches.each do |match| %>
-  <h3><%= link_to match.title, match %><br></h3>
-  Time and Date:<strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%H:%M") %></strong><br>
-  Course: <strong><%= match.course.name %><br></strong>
-  Users Attending:<br>
-  <% match.users.each do |u| %>
-    <%= link_to u.email, u %><br>
-  <% end %>
-<% end %>
-<strong><a data-open="exampleModal1">New Match</a></strong>
-<div class="reveal" id="exampleModal1" data-reveal>
-  <%= render 'matches/form' %>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div><br>
-
-
 <div class="row">
-    <div class="medium-6 columns">
-      <div class="box">
-        <div class="box-icon">
-          <span class="fi-telephone"></span>
-        </div>
-        <div class="info">
-          <h4 class="text-center">Title</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
-          <a href="#" class="button">Link</a>
-        </div>
+  <div class="medium-6 columns">
+    <div class="box">
+      <div class="box-icon">
+        <span class="fi-telephone"></span>
       </div>
-    </div>
-    <div class="medium-6 columns">
-      <div class="box">
-        <div class="box-icon">
-            <span class="fi-mail"></span>
-        </div>
-        <div class="info">
-          <h4 class="text-center">Title</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
-          <a href="#" class="button">Link</a>
-        </div>
+      <div class="info">
+        <h4 class="text-center">Title</h4>
+        <h3><%= link_to match.title, match %><br></h3>
+        Time and Date:<strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%H:%M") %></strong><br>
+        Course: <strong><%= match.course.name %><br></strong>
+        Users Attending:
+        <% match.users.each do |u| %>
+        <%= link_to u.email, u, class:'button' %><br>
       </div>
     </div>
   </div>
+  <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <strong><a data-open="exampleModal1">New Match</a></strong>
+  <div class="reveal" id="exampleModal1" data-reveal>
+    <%= render 'matches/form' %>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div><br>
