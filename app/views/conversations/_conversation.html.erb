@@ -1,54 +1,30 @@
-  <div class="row">
-  <div class="samll-12 columns">
-    <table>
-      <thead>
-        <tr>
-          <th width="200"><i class="fi-torsos-male-female"></i></th>
-          <th><i class="fi-comment-quotes"></i></th>
-          <th width="150"><i class="fi-list-thumbnails"></i></th>
-          <th width="150"><i class="fi-calendar"></i></th>
-          <th width="150"><i class="fi-trash"></i></th>
-          <% if conversation.is_unread?(current_user) %>
-          <th width="150"><i class="fi-check"></i></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <%= render 'conversations/participants', conversation: conversation %>
-
-          </td>
-          <td>
-  <%= link_to conversation.subject, conversation_path(conversation) %>
-          </td>
-          <td>
-            <%= conversation.last_message.body %>
-          </td>
-          <td>
-              <%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-
-          </td>
-
-          <% if conversation.is_trashed?(current_user) %>
-          <td>
-            <%= link_to 'Restore', restore_conversation_path(conversation), class: 'button expanded primary', method: :post %>
-
-          </td>
-
-          <% else %>
-          <td>
-            <%= link_to 'Move to trash', conversation_path(conversation), class: 'button small expanded alert', method: :delete, data: {confirm: 'Are you sure?'} %>
-
-          </td>
-          <% if conversation.is_unread?(current_user) %>
-          <td>
-            <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: 'button expanded small', method: :post %>
-          </td>
-          <% end %>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th width="200"><i class="fi-torsos-male-female"></i></th>
+      <th><i class="fi-comment-quotes"></i></th>
+      <th width="150"><i class="fi-list-thumbnails"></i></th>
+      <th width="150"><i class="fi-calendar"></i></th>
+      <th width="150"><i class="fi-trash"></i></th>
+      <% if conversation.is_unread?(current_user) %>
+      <th width="150"><i class="fi-check"></i></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= render 'conversations/participants', conversation: conversation %></td>
+      <td><%= link_to conversation.subject, conversation_path(conversation) %></td>
+      <td><%= conversation.last_message.body %></td>
+      <td><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></td>
+      <% if conversation.is_trashed?(current_user) %>
+      <td><%= link_to 'Restore', restore_conversation_path(conversation), class: 'button small expanded primary', method: :post %></td>
+      <% else %>
+      <td><%= link_to 'Move to trash', conversation_path(conversation), class: 'button small expanded alert', method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% if conversation.is_unread?(current_user) %>
+      <td><%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: 'button expanded small', method: :post %></td>
+      <% end %>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

@@ -1,33 +1,31 @@
 <% page_header "Conversation" %>
 
-Chatting with
-  <%= render 'conversations/participants', conversation: @conversation %>
 
 
-<div class="panel panel-default">
-<h3>Subject: <%= @conversation.subject %></h3>
-
-  <div class="panel-body">
-    <div class="messages">
-      <% @conversation.receipts_for(current_user).each do |receipt| %>
-        <div class="media">
+<div class="row">
+  <div class="large-9 columns large-centered">
+      <div class="media-object">
+        <div class="media-object-section">
+          Chatting with <br>
+          <div class="thumbnail">
+            <%= render 'conversations/participants', conversation: @conversation %>
+          </div>
+        </div>
+        <div class="media-object-section">
+          Subject: <%= @conversation.subject %>
+          <% @conversation.receipts_for(current_user).each do |receipt| %>
           <% message = receipt.message %>
-          <div class="media-left">
-            <%= cl_image_tag (message.sender.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
-          </div>
-          <div class="media-body">
-            <h6 class="media-heading"><%= message.sender.email %>
-              says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>
-            <h5><%= message.body %></h5>
-          </div>
+          <%= cl_image_tag (message.sender.gravatar.url), :width => 100, :height => 100, :crop => :fill, :gravity => :face %><br>
+          <%= message.sender.email %>
+          says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></h6>
+          <%= message.body %>
+          <% end %>
+          <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+          <%= text_area_tag 'body', nil, cols: 6, placeholder: 'Type something...', required: true %>
+          <%= submit_tag "Send Message", class: 'button' %>
+          <% end %>
         </div>
-      <% end %>
-      <%= form_tag reply_conversation_path(@conversation), method: :post do %>
-        <div class="form-group">
-          <%= text_area_tag 'body', nil, cols: 6, class: 'form-control', placeholder: 'Type something...', required: true %>
-        </div>
-        <%= submit_tag "Send Message", class: 'btn btn-primary' %>
-      <% end %>
+      </div>
+
     </div>
   </div>
-</div>

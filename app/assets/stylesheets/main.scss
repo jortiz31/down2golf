@@ -120,9 +120,137 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 
   .title {
     background-color: #2ecc71;
-    color: #EEEEEE;
-    font-size: 0.875rem;
+    color: #fff;
+    font-size: 1.15rem;
     border-bottom: 0;
   }
 
+  .button {
+    margin: 0;
+  }
+
+}
+
+
+// USER SHOW PAGE CUSTOM CSS
+.profile-card {
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  background-color: #fff;
+  img {
+    width: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888;
+  }
+  .profile-info {
+    padding: 1rem;
+    h4 {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    p {
+      text-align: center;
+    }
+    .inline-list {
+      text-align: center;
+      margin-bottom: 1rem;
+      li {
+        float: none;
+        display: inline-block;
+      }
+      i.fi-social-facebook {
+        font-size: 1.5rem;
+        color: #3b5998;
+        &:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out;
+        }
+      }
+      i.fi-social-twitter {
+        font-size: 1.5rem;
+        color: #55acee;
+        &:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out;
+        }
+      }
+      i.fi-social-linkedin {
+        font-size: 1.5rem;
+        color: #0077b5;
+        &:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out;
+        }
+      }
+      i.fi-social-github {
+        font-size: 1.5rem;
+        color: #333;
+        &:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out;
+        }
+      }
+      i.fi-social-youtube {
+        font-size: 1.5rem;
+        color: #cc181e;
+        &:hover {
+          transform: scale(1.5);
+          transition: all .5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// CSS FOR MATCHES INDEX
+.box {
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 25px;
+  display: block;
+  margin-top: 60px;
+}
+
+.box-icon {
+  background-color: #569;
+  border-radius: 50%;
+  display: table;
+  height: 100px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: -61px;
+  font-size: 3rem;
+  span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.info {
+  h4 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  p {
+    color: #717171;
+    font-size: 16px;
+    padding-top: 10px;
+  }
+  a {
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.5s ease 0s;
+  	&:hover {
+    	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    	transition: all 0.5s ease 0s;
+    }
+  }
 }
