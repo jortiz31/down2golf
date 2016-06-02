@@ -17,11 +17,11 @@
         Course: <strong><%= match.course.name %><br></strong>
         Users Attending:
         <% match.users.each do |u| %>
-        <%= link_to u.email, u%><br>
+        <%= link_to u.email, u%>
+        <% end %>
       </div>
     </div>
   </div>
-  <% end %>
 </div>
 <% end %>
 
