@@ -24,10 +24,20 @@
    font-style: normal;
  }
  .messages {
-   max-height: 400px;
-   overflow-y: auto;
+   max-height: 100%;
+   overflow-y: scroll;;
    margin-bottom: 1em;
    margin-top: 1em;
+ }
+
+ td {
+   margin: 0;
+   padding: 0;
+ }
+
+ td img {
+   max-width: 50% !important;
+   max-height: 20% !important;
  }
  .chosen-container{
    width: 100% !important;

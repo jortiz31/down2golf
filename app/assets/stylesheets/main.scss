@@ -92,29 +92,6 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   color: #fff;
 }
 
-.callout.alert {
-  border: 3px solid #D91E18;
-  border-radius: 5px;
-  background-color:rgba(217, 30, 24, 0.2);
-  font-size: 1em;
-}
-
-.callout.success {
-  border: 3px solid #1E824C;
-  border-radius: 5px;
-  background-color:rgba(30, 130, 76, 0.2);
-}
-
-
-.callout {
-  i {
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    padding: .2em .4em;
-    margin-right: 0.8rem;
-  }
-}
 
 .menu {
   li {
@@ -125,4 +102,115 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 .userimg {
   max-width: 100%;
   max-height: 100%;
+}
+
+// MAILBOX CSS
+
+.pricing-table {
+  border: solid 1px #DDDDDD;
+
+  li {
+    border-bottom: dotted 1px #DDDDDD;
+    font-size: 1.15rem;
+    padding: 0.875rem 1.125rem;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .title {
+    background-color: #2ecc71;
+    color: #fff;
+    font-size: 1.15rem;
+    border-bottom: 0;
+  }
+
+  .button {
+    margin: 0;
+  }
+
+}
+
+
+// USER SHOW PAGE CUSTOM CSS
+.profile-card {
+  padding: 1rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  margin: 2rem 0;
+  background-color: #fff;
+  img {
+    width: 8rem;
+    height: 8rem;
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #888888;
+  }
+  .profile-info {
+    padding: 1rem;
+    h4 {
+      margin-top: 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    p {
+      text-align: center;
+    }
+
+    }
+  }
+
+
+// CSS FOR MATCHES INDEX
+.box {
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px 25px;
+  display: block;
+  margin-top: 60px;
+}
+
+.box-icon {
+  background-color: #2ecc71;
+  border-radius: 50%;
+  display: table;
+  height: 100px;
+  margin: 0 auto;
+  width: 100px;
+  margin-top: -61px;
+  font-size: 3rem;
+  span {
+    color: #fff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+.info {
+  h4 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  p {
+    color: #717171;
+    font-size: 16px;
+    padding-top: 10px;
+  }
+  a {
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: all 0.5s ease 0s;
+  	&:hover {
+    	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+    	transition: all 0.5s ease 0s;
+    }
+  }
+}
+
+.pagination a {
+
+  display: inline-block;
 }

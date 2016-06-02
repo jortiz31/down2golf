@@ -6,9 +6,9 @@ Users attending:<br>
   <strong><%= user.email %></strong><br>
 <% end %>
 <% if !@match.users.include? current_user %>
-  <strong><%= link_to 'Join', match_user_join_path(@match, current_user) %></strong><br>
+  <strong><%= link_to 'Join', match_user_join_path(@match, current_user), class:"button primary" %></strong><br>
 <% else %>
-  <strong><%= link_to 'Leave', match_user_leave_path(@match, current_user) %></strong><br>
+  <strong><%= link_to 'Leave', match_user_leave_path(@match, current_user) , class:"button alert"%></strong><br>
 <% end %>
 <div class = "row">
 Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
@@ -21,13 +21,13 @@ Comments:<br>
   <h5><%= c.body %></h5>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>
-    <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
-    <%= link_to "Edit Comment", edit_match_comment_path(@match,c) %>
+    <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete, class:"button small warning" %>
+    <%= link_to "Edit Comment", edit_match_comment_path(@match,c), class:"button secondary small" %>
   <% end %>
 <% end %>
 <br>
 <% if current_user %>
-  <strong><button class="button alert" data-open="commentModal">Comment on Match</button></strong>
+  <strong><button class="button success" data-open="commentModal">Comment on Match</button></strong>
   <div class="reveal" id="commentModal" data-reveal>
     <%= render 'comments/form' %>
     <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -36,6 +36,6 @@ Comments:<br>
   </div><br>
 <% end %>
 <% if current_user == @match.users.first %>
-  <%= link_to "Edit Match", edit_match_path(@match) %><br>
-  <%= link_to "Delete Match", match_path(@match), method: :delete %>
+  <%= link_to "Edit Match", edit_match_path(@match), class:"button secondary small" %><br>
+  <%= link_to "Delete Match", match_path(@match), method: :delete, class:"button warning small"%>
 <% end %>

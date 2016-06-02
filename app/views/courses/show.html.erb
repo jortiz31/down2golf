@@ -53,14 +53,14 @@ Comments:<br>
   <br><h5><%= c.body %></h5>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>
-    <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete %>
-    <%= link_to "Edit Comment", edit_course_comment_path(@course,c)%>
+    <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete, class:"button warning small" %>
+    <%= link_to "Edit Comment", edit_course_comment_path(@course,c), class:"button secondary small"%>
   <% end %>
 <% end %>
 <br>
 <br>
 <% if current_user %>
-  <strong><button class="button alert" data-open="commentModal">Comment on Course</button></strong>
+  <strong><button class="button success" data-open="commentModal">Comment on Course</button></strong>
   <div class="reveal" id="commentModal" data-reveal>
     <%= render 'comments/form' %>
     <button class="close-button" data-close aria-label="Close modal" type="button">
