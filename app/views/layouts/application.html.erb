@@ -65,7 +65,7 @@
     <div class="large-6 medium-6 columns large-centered medium-centered">
       <% if notice %>
       <div class="success callout" data-closable="slide-out-right">
-        <p class="notice text-center"><i class="fi-check"></i><%= notice %></p>
+        <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
           <span aria-hidden="true">&times;</span>
         </button>
@@ -74,9 +74,9 @@
 
       <% if alert %>
       <div class="alert callout" data-closable="slide-out-right">
-        <p class="alert text-center"><i class="fi-alert"></i><%= alert %></p>
+        <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">&times;</span>
+          <span class="xbtn" aria-hidden="true">&times;</span>
         </button>
       </div>
       <% end %>
@@ -84,6 +84,7 @@
   </div>
 
 <%= yield %>
+
 
 
 </body>
