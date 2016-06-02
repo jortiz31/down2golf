@@ -26,9 +26,9 @@
 
 </div>
 
-
+<% if @match.comments.length > 0 %>
 <div class="row pad-down">
-  <div class="large-10 large-centered columns">
+  <div class="large-7 large-centered columns">
 <h3><i class="fi-comments"></i>  Comments:</h3>
     <div class="callout">
   <% @match.comments.each do |c| %>
@@ -38,16 +38,16 @@
       <h5>Comment: <small><%= c.body %></small></h5>
     </div>
   </div>
+  <% if current_user.id == c.user_id %>
+  <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
+  <%= link_to "Edit Comment", edit_match_comment_path(@match,c) %>
+  <% end %>
+  <% end %>
+</div>
+
+<% end %>
 
 
-
-
-          <% if current_user.id == c.user_id %>
-          <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
-          <%= link_to "Edit Comment", edit_match_comment_path(@match,c) %>
-          <% end %>
-          <% end %>
-        </div>
 
 
     <% if current_user %>
