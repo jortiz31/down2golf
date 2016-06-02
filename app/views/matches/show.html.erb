@@ -1,3 +1,4 @@
+
 <div class="row align-middle">
   <div class="columns">
     <div class="callout">
@@ -14,16 +15,14 @@
     <h3><i class="fi-torsos-all"></i> Users attending: </h3>
     <div class="callout">
     <% @match.users.each do |user| %>
-    <small><%= user.email %></small></h3> <br>
-    <% end %>
-    <% if !@match.users.include? current_user %>
-    <%= link_to 'Join', match_user_join_path(@match, current_user), class: 'fi-plus' %>
-    <% else %>
-    <%= link_to 'Leave', match_user_leave_path(@match, current_user), class: 'fi-minus-circle' %>
-    <% end %>
+    <small><%= user.email %></small></h3> <% end %> <br>
+      <% if !@match.users.include? current_user %>
+        <strong><%= link_to 'Join', match_user_join_path(@match, current_user), class:"button primary" %></strong><br>
+      <% else %>
+        <strong><%= link_to 'Leave', match_user_leave_path(@match, current_user) , class:"button alert"%></strong><br>
+      <% end %>
   </div>
   </div>
-
 </div>
 
 <% if @match.comments.length > 0 %>
@@ -38,57 +37,56 @@
       <h5>Comment: <small><%= c.body %></small></h5>
     </div>
   </div>
-  <% if current_user.id == c.user_id %>
-  <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete %>
-  <%= link_to "Edit Comment", edit_match_comment_path(@match,c) %>
+    <% if current_user.id == c.user_id %>
+      <%= link_to "Delete Comment", match_comment_path(@match,c), method: :delete, class:"button small warning" %>
+      <%= link_to "Edit Comment", edit_match_comment_path(@match,c), class:"button secondary small" %>
+    <% end %>
   <% end %>
-  <% end %>
-</div>
-
 <% end %>
-
-
 
 
     <% if current_user %>
     <button class="button alert" data-open="commentModal">Comment on Match</button>
     <% end %>
 </div>
-</div>
 
 
-
-
-<div class="row">
-<div class="large-4 columns">
-  Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-
-
-  Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-
-
-  Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-
-  Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-</div>
-
-</div>
 
 
 
 <div class="row">
-  <div class="large-6 medium-5 small-12 columns">
-    <% if current_user == @match.users.first %>
-    <%= link_to "Edit Match", edit_match_path(@match) %><br>
-    <%= link_to "Delete Match", match_path(@match), method: :delete %>
-    <% end %>
+  <div class="large-4 columns">
+    Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+
+
+    Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+
+
+    Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+
+    Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
   </div>
+
 </div>
 
 
-<div class="reveal" id="commentModal" data-reveal>
-  <%= render 'comments/form' %>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+
+
+
+<% if current_user %>
+  <strong><button class="button success" data-open="commentModal">Comment on Match</button></strong>
+  <div class="reveal" id="commentModal" data-reveal>
+    <%= render 'comments/form' %>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div><br>
+  <% end %>
+  <div class="row">
+    <div class="large-6 medium-5 small-12 columns">
+      <% if current_user == @match.users.first %>
+        <%= link_to "Edit Match", edit_match_path(@match), class:"button secondary small" %><br>
+        <%= link_to "Delete Match", match_path(@match), method: :delete, class:"button warning small"%>
+      <% end %>
+    </div>
+  </div>

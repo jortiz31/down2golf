@@ -37,5 +37,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :matches
   end
+  resources :checkouts,  only: [:new, :create, :show]
+  post "/checkouts" ,controller: 'checkouts', to: "checkouts#create" do
+    nonce_from_the_client = params[:payment_method_nonce]
+    p nonce_from_the_client
+  end
   get '*path', to: 'courses#index'
 end

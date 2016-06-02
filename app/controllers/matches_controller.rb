@@ -18,13 +18,24 @@ class MatchesController < ApplicationController
   end
 
   def create
+    @match_count = 0
+    current_user.matches.each do |match|
+      if match.users.first == current_user
+        @match_count += 1
+      end
+    end
     @comment = Comment.new
-    @match = Match.new(match_params)
-    current_user.matches << @match
-    if @match.save
-      render :show, status: :created, location: @match
-    else
-      render json: @match.errors, status: :unprocessable_entity
+    if current_user.premium
+      @match = Match.new(match_params)
+      current_user.matches << @match
+      redirect_to @match
+    elsif @match_count >= 5
+      flash[:notice]="Sign up for premium in order to create more than 5 matches!"
+      redirect_to matches_path
+    elsif @match_count < 5
+      @match=Match.new(match_params)
+      current_user.matches << @match
+      redirect_to @match
     end
   end
 

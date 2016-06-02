@@ -6,6 +6,7 @@
     <%= f.email_field :email, autofocus: true %>
     <%= f.label :username %>
     <%= f.text_field :username, autofocus: true %>
+
     <%= f.label :gravatar %>
     <%= f.file_field :gravatar %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
