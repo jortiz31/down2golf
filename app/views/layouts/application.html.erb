@@ -25,7 +25,7 @@
     <% if user_signed_in? %>
     <div class="title-bar-title"><%=link_to current_user.email, current_user  %> </div>
     <% else %>
-    <div class="title-bar-title">Menu</div>
+    <div class="title-bar-title"><%= link_to 'Down2Golf', root_path %></div>
     <% end %>
   </div>
   <div class="top-bar" id="main-menu">
@@ -34,7 +34,7 @@
         <% if user_signed_in? %>
         <li class="menu-text"><i class="fi-skull"> <%=link_to current_user.email, current_user  %> </i></li>
         <% else %>
-        <li class="menu-text"><i class="fi-skull">  Down 2 Golf? </i></li>
+        <li class="menu-text"><i class="fi-skull"> <%= link_to 'Down2Golf', root_path %></i></li>
         <% end %>
       </ul>
     </div>
@@ -61,29 +61,31 @@
   </div>
     <%= render partial: "layouts/notifications" %>
   </header>
-  <div class="row pad-down">
-    <div class="large-6 medium-6 columns large-centered medium-centered">
-      <% if notice %>
-      <div class="success callout" data-closable="slide-out-right">
-        <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
-        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <% end %>
 
-      <% if alert %>
-      <div class="alert callout" data-closable="slide-out-right">
-        <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
-        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span class="xbtn" aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <% end %>
-    </div>
-  </div>
 
 <%= yield %>
+
+<div class="row">
+  <div class="large-6 medium-6 columns large-centered medium-centered">
+    <% if notice %>
+    <div class="success callout" data-closable="slide-out-right">
+      <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
+
+    <% if alert %>
+    <div class="alert callout" data-closable="slide-out-right">
+      <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span class="xbtn" aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% end %>
+  </div>
+</div>
 
 
 

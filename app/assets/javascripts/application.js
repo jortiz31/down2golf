@@ -19,6 +19,3 @@ $(document).ready(function(){
   $(document).foundation();
   console.log('foundation loaded');
 });
-braintree.setup("CLIENT-TOKEN-FROM-SERVER", "dropin", {
-  container: "dropin-container"
-});
