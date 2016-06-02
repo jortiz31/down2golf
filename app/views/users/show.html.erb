@@ -6,17 +6,15 @@
         <h4 class="subheader"><%= @user.username %></h4>
         <p>Joined On: <%= @user.created_at.strftime("%m/%d/%Y") %></p>
         <p>Email: <%= @user.email %></p>
-        <ul class="inline-list">
-          <li>Humor?<%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %></li>
-          <li>Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %></li>
-          <li>Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %></li>
-        </div>
       </div>
     </div>
   </div>
+</div>
+
+
 
   <div class="row">
-    <div class="large-6 medium-8 small-12 large-centered medium-centered columns">
+    <div class="large-6 medium-8 small-11 small-centered large-centered medium-centered columns">
       <% if @user.matches.length == 0 %>
       <h4 class="text-center"> <%= @user.username.capitalize %> is not playing in any matches.</h4>
       <% else %>
@@ -52,3 +50,16 @@
     </div>
   </div>
   <% end %>
+
+
+
+
+  <div class="row pad-down">
+    <div class="large-9 medium-5 small-9 small-centered large-centered medium-centered columns">
+      <div class="callout">
+        Humor? <%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+        Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+        Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      </div>
+    </div>
+  </div>
