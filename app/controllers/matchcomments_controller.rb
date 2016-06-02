@@ -7,7 +7,7 @@ class MatchcommentsController < ApplicationController
     render 'comments/new'
   end
   def index
-    @comments=Comment.all
+    @comments=Comment.all.order(created_at: :desc)
   end
   def show
     @comment = Comment.find(params[:id])
@@ -16,6 +16,7 @@ class MatchcommentsController < ApplicationController
     @comment = @match.comments.create(comment_params)
     puts "comment created for match!"
     current_user.comments << @comment
+    flash[:notice]="Comment created!"
     redirect_to @match
   end
   def edit
@@ -25,11 +26,13 @@ class MatchcommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
+    flash[:notice]="Comment updated!"
     redirect_to @match
   end
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:notice]="Comment deleted!"
     redirect_to @match
   end
 

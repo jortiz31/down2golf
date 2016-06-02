@@ -16,6 +16,7 @@ class CoursecommentsController < ApplicationController
     @comment = @course.comments.create(comment_params)
     puts "comment created for course!"
     current_user.comments << @comment
+    flash[:notice]="Comment created!"
     redirect_to @course
   end
   def edit
@@ -25,11 +26,13 @@ class CoursecommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
+    flash[:notice]="Comment updated!"
     redirect_to @course
   end
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:notice]="Comment deleted!"
     redirect_to @course
   end
 
