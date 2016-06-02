@@ -18,7 +18,7 @@
       <% if @user.matches.length == 0 %>
       <h4 class="text-center"> <%= @user.username.capitalize %> is not playing in any matches.</h4>
       <% else %>
-      <h4 class="text-center"> <%= @user.username.capitalize %> - Matches: <%= @user.matches.count %> </h4>
+      <h4 class="text-center"> <%= @user.email.capitalize %> - Matches: <%= @user.matches.count %> </h4>
       <div class="row">
         <table class="hover">
           <thead>
