@@ -52,9 +52,9 @@
 <div class="row pad-down">
   <div class="large-9 medium-5 small-9 small-centered large-centered medium-centered columns">
     <div class="callout">
-      Humor? <%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      Humor? <%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true, star_path: '/images/ratyrate'%>
+      Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,  star_path: '/images/ratyrate' %>
+      Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true, star_path: '/images/ratyrate' %>
     </div>
   </div>
 </div>

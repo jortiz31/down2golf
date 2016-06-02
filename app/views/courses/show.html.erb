@@ -27,10 +27,10 @@
     <div id="weather"></div>
   </div>
   <div class="large-3 columns">
-    Clubhouse: <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Conditions: </h5><%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Scenery: <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Worth: <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+    Clubhouse: <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+    Conditions: </h5><%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+    Scenery: <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
+    Worth: <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
   </div>
   <div class="large-6 columns">
     <h2>Matches:</h2> <br>

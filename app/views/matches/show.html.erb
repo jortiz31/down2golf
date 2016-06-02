@@ -11,10 +11,10 @@
   <div class="columns">
     <h3><i class="fi-star"></i> Ratings: </h3>
     <div class = "callout">
-      Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
+      Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+      Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+      Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
     </div>
     <h3><i class="fi-torsos-all"></i> Users attending: </h3>
     <div class="callout">
