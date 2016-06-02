@@ -9,7 +9,7 @@ class MatchesController < ApplicationController
   def index
     @match= Match.new
     @courses = Course.all
-    @matches = Match.all.paginate(:page => params[:page], :per_page => 2)
+    @matches = Match.all.paginate(:page => params[:page], :per_page => 4)
   end
 
   def show
