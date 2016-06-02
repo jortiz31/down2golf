@@ -9,7 +9,6 @@
  *
  */
 
-;
 (function($) {
   'use strict';
 
@@ -724,8 +723,8 @@
     cancel       : false,
     cancelClass  : 'raty-cancel',
     cancelHint   : 'Cancel this rating!',
-    cancelOff    : <%= asset_path('cancel-off.png') %>,
-    cancelOn     : <%=  asset_path('cancel-on.png')%>,
+    cancelOff    : 'cancel-off.png',
+    cancelOn     : 'cancel-on.png',
     cancelPlace  : 'left',
     click        : undefined,
     half         : false,
@@ -745,9 +744,9 @@
     scoreName    : 'score',
     single       : false,
     space        : true,
-    starHalf     : <%= asset_path('star-half.png') %>,
-    starOff      : <%=  asset_path('star-off.png')%>,
-    starOn       : <%=  asset_path('star-on.png')%>,
+    starHalf     :'star-half.png',
+    starOff      : 'star-off.png',
+    starOn       : 'star-on.png',
     starType     : 'img',
     target       : undefined,
     targetFormat : '{score}',
