@@ -46,7 +46,7 @@
       </button>
     </div><br>
   </div>
-
+<div id="weather"></div>
 <h3>Comments:</h3><br>
 <% @comments = @course.comments.order(created_at: :desc)%>
 <% @comments.each do |c| %>
@@ -73,6 +73,30 @@
 
 <script>
 var address = $('#address').text();
+console.log(address)
+$.ajax({
+  method: "GET",
+  url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=245542a7232d4bac319f7f18675485d0",
+  success: getCourseSuccess
+})
+
+function getCourseSuccess(course){
+  console.log(course);
+  var humidity = course.main.humidity;
+  var pressure = course.main.pressure;
+  var temp_avg =  course.main.temp;
+  var temp_min = course.main.temp_min;
+  var temp_max = course.main.temp_max;
+  var weather = course.weather[0].description;
+  var main = course.weather[0].main;
+  var deg = course.wind.deg;
+  var speed = course.wind.speed;
+  console.log(humidity, pressure, temp_avg ,temp_min, temp_max, weather, main ,deg ,speed);
+  $('#weather').html("<ul><li>humidity: "+humidity+"</li>"+"<li>pressure: "+pressure+"</li><li>average temp: "+temp_avg+"</li><li>max temp: "+
+temp_max+"</li><li>min temp: "+temp_min+"</li><li>weather description: "+weather+"</li><li>Wind Speed: "+speed+"</li><li>Wind Degree: "+deg+"</li></ul>")
+// +"</li><li>Wind speed: "+speed+"</li><li>Wind Degree: "+deg"</li></ul>")
+}
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
