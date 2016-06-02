@@ -30,7 +30,7 @@
         <% @user.matches.each do |m| %>
         <tr>
           <td>
-            <%= link_to m.title %>
+            <%= link_to m.title , m%>
           </td>
           <td>
             <%= m.date.strftime("%m/%d/%Y") %>
@@ -39,7 +39,7 @@
             <%= m.time.strftime("%H:%M") %>
           </td>
           <td>
-            <%= link_to m.course.name  %> <br>
+            <%= link_to m.course.name , m.course %> <br>
           </td>
         </tr>
         <% end %>

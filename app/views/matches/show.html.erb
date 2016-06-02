@@ -12,7 +12,7 @@
     <h3><i class="fi-torsos-all"></i> Users attending: </h3>
     <div class="callout">
     <% @match.users.each do |user| %>
-      <small><%= user.email %></small></h3> <% end %> <br>
+      <small><%=link_to user.email , user%></small></h3> <% end %> <br>
       <% if !@match.users.include? current_user %>
         <strong><%= link_to 'Join', match_user_join_path(@match, current_user), class:"button primary" %></strong><br>
       <% else %>
