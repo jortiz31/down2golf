@@ -48,8 +48,9 @@
     </div><br>
   </div>
 
-Comments:<br>
-<% @course.comments.each do |c| %>
+<h3>Comments:</h3><br>
+<% @comments = @course.comments.order(created_at: :desc)%>
+<% @comments.each do |c| %>
   <br><h5><%= c.body %></h5>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>

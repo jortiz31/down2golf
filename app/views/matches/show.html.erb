@@ -17,7 +17,8 @@ Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:tru
 Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
 </div>
 Comments:<br>
-<% @match.comments.each do |c| %>
+<% @comments = @match.comments.order(created_at: :desc) %>
+<% @comments.each do |c| %>
   <h5><%= c.body %></h5>
   Written By: <%= c.user.email %><br>
   <% if current_user.id == c.user_id %>
