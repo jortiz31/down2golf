@@ -32,7 +32,6 @@ class CheckoutsController < ApplicationController
     if result.success? || result.transaction
       current_user.premium = true
       current_user.save
-      debugger
       redirect_to checkout_path(result.transaction.id)
     else
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
