@@ -18,15 +18,17 @@
 
 <div class="row">
   <div class="large-12 columns">
-
-    <h3><%= number_to_currency(@course.price) %></h3>
-    <h3><a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
+    <h3><%= number_to_currency(@course.price) %>
+    <a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
   </div>
 </div>
 
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="large-3 columns">
+    <div id="weather"></div>
+  </div>
+  <div class="large-3 columns">
     Clubhouse: <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
     Conditions: </h5><%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
     Scenery: <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
@@ -46,8 +48,10 @@
       </button>
     </div><br>
   </div>
-<div id="weather"></div>
-<h3>Comments:</h3><br>
+</div>
+<div class="row">
+  <div class="small-12 columns large-12 medium-12">
+<h3>Comments:</h3>
 <% @comments = @course.comments.order(created_at: :desc)%>
 <% @comments.each do |c| %>
   <br><h5><%= c.body %></h5>
@@ -69,7 +73,8 @@
   </div><br>
 <% end %>
 <br>
-
+</div>
+</div>
 
 <script>
 var address = $('#address').text();
@@ -79,7 +84,6 @@ $.ajax({
   url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=245542a7232d4bac319f7f18675485d0",
   success: getCourseSuccess
 })
-
 function getCourseSuccess(course){
   console.log(course);
   var humidity = course.main.humidity;
@@ -94,7 +98,6 @@ function getCourseSuccess(course){
   console.log(humidity, pressure, temp_avg ,temp_min, temp_max, weather, main ,deg ,speed);
   $('#weather').html("<ul><li>humidity: "+humidity+"</li>"+"<li>pressure: "+pressure+"</li><li>average temp: "+temp_avg+"</li><li>max temp: "+
 temp_max+"</li><li>min temp: "+temp_min+"</li><li>weather description: "+weather+"</li><li>Wind Speed: "+speed+"</li><li>Wind Degree: "+deg+"</li></ul>")
-// +"</li><li>Wind speed: "+speed+"</li><li>Wind Degree: "+deg"</li></ul>")
 }
 
 function initMap() {
