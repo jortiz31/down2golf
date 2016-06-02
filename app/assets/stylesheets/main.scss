@@ -6,6 +6,7 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 
 // $grid-column-gutter: 30px;
 
+// NAV CUSTOM CSS
 .title-bar {
   background: $menu-background;
   padding: 0.9rem;
@@ -57,6 +58,12 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   }
 }
 
+.menu {
+  li {
+    text-align: center;
+  }
+}
+
 .dropdown.menu .submenu {
   border: none;
 }
@@ -92,11 +99,10 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   color: #fff;
 }
 
+.course-image {
+  max-width: 100%;
+  padding: 0 0 10px 0;
 
-.menu {
-  li {
-    text-align: center;
-  }
 }
 
 .userimg {
@@ -210,7 +216,30 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
   }
 }
 
+// PAGINATION CUSTOM CSS
 .pagination a {
-
   display: inline-block;
+}
+
+//CALLOUT CUSTOM css
+.callout {
+  padding: 20px 10px 10px 10px;
+
+}
+
+.callout.alert {
+  border: 2px solid #c0392b;
+  color: #c0392b;
+}
+
+.callout.success {
+  border: 2px solid #27ae60;
+  color: #27ae60;
+}
+
+
+.callout.success {
+  i {
+    color: #27ae60;
+  }
 }

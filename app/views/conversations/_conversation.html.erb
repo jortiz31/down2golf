@@ -16,7 +16,7 @@
       <td><%= render 'conversations/participants', conversation: conversation %></td>
       <td><%= link_to conversation.subject, conversation_path(conversation) %></td>
       <td><%= conversation.last_message.body %></td>
-      <td><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></td>
+      <td><%= conversation.last_message.created_at.strftime("%-d %B %Y, %I:%M:p") %></td>
       <% if conversation.is_trashed?(current_user) %>
       <td><%= link_to 'Restore', restore_conversation_path(conversation), class: 'button small expanded primary', method: :post %></td>
       <% else %>

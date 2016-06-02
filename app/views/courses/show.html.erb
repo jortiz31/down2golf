@@ -1,33 +1,34 @@
 <div class="row">
-  <div class="large-12 medium-12 small-10 small-centered columns">
-    <h1><%=@course.name.split.map(&:capitalize)*' '  %> <small id="location"> <%= @course.location.split.map(&:capitalize)*' '  %></small></h1>
-
+  <div class="large-12 medium-12 small-12 small-centered columns">
+    <h1 class="text-center"><%=@course.name.split.map(&:capitalize)*' '  %> <small id="address"><%= @course.location.split.map(&:capitalize)*' ' %></small></h1>
   </div>
 
 </div>
 
 <div class="row align-middle">
-  <div class="large-7 medium-7 small-10 small-centered columns">
-    <img class="fixed-image" src="<%= @course.image %>">
+  <div class="large-7 medium-7 small-11 small-centered columns">
+    <img class="course-image" src="<%= @course.image %>">
   </div>
   <div class="large-5 medium-5 small-10 small-centered columns">
     <div class="map_container">
-      <div id="map" class="map thumbnail fixed-image"></div>
+      <div id="map" class="map course-image"></div>
     </div>
   </div>
 </div>
 
 <div class="row">
   <div class="large-12 columns">
-
-    <h3><%= number_to_currency(@course.price) %></h3>
-    <h3><a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
+    <h3><%= number_to_currency(@course.price) %>
+    <a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
   </div>
 </div>
 
 
 <div class="row">
-  <div class="large-6 columns">
+  <div class="large-3 columns">
+    <div id="weather"></div>
+  </div>
+  <div class="large-3 columns">
     Clubhouse: <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
     Conditions: </h5><%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
     Scenery: <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
@@ -47,8 +48,10 @@
       </button>
     </div><br>
   </div>
-
-<h3>Comments:</h3><br>
+</div>
+<div class="row">
+  <div class="small-12 columns large-12 medium-12">
+<h3>Comments:</h3>
 <% @comments = @course.comments.order(created_at: :desc)%>
 <% @comments.each do |c| %>
   <br><h5><%= c.body %></h5>
@@ -70,22 +73,56 @@
   </div><br>
 <% end %>
 <br>
-
+</div>
+</div>
 
 <script>
-function initMap() {
-  var myLatLng = {lat: -25.363, lng: 131.044};
-  var location = document.getElementById('location').textContent;
-  console.log(location);
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
+var address = $('#address').text();
+console.log(address)
+$.ajax({
+  method: "GET",
+  url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=245542a7232d4bac319f7f18675485d0",
+  success: getCourseSuccess
+})
+function getCourseSuccess(course){
+  console.log(course);
+  var humidity = course.main.humidity;
+  var pressure = course.main.pressure;
+  var temp_avg =  course.main.temp;
+  var temp_min = course.main.temp_min;
+  var temp_max = course.main.temp_max;
+  var weather = course.weather[0].description;
+  var main = course.weather[0].main;
+  var deg = course.wind.deg;
+  var speed = course.wind.speed;
+  console.log(humidity, pressure, temp_avg ,temp_min, temp_max, weather, main ,deg ,speed);
+  $('#weather').html("<ul><li>humidity: "+humidity+"</li>"+"<li>pressure: "+pressure+"</li><li>average temp: "+temp_avg+"</li><li>max temp: "+
+temp_max+"</li><li>min temp: "+temp_min+"</li><li>weather description: "+weather+"</li><li>Wind Speed: "+speed+"</li><li>Wind Degree: "+deg+"</li></ul>")
+}
 
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    // center: {lat: -34.397, lng: 150.644}
+  });
+  var geocoder = new google.maps.Geocoder();
+
+  window.addEventListener('load', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
   });
 }
 </script>
