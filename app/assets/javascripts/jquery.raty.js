@@ -9,6 +9,7 @@
  *
  */
 
+;
 (function($) {
   'use strict';
 
@@ -744,7 +745,7 @@
     scoreName    : 'score',
     single       : false,
     space        : true,
-    starHalf     :'star-half.png',
+    starHalf     : 'star-half.png',
     starOff      : 'star-off.png',
     starOn       : 'star-on.png',
     starType     : 'img',

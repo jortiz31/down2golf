@@ -1,5 +1,6 @@
 class RaterController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+
   def create
     if user_signed_in?
       obj = params[:klass].classify.constantize.find(params[:id])

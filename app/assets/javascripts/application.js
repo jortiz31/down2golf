@@ -11,7 +11,6 @@
 //= require foundation.min
 //= require jquery.raty
 //= require ratyrate
-
 //= require_tree .
 
 console.log('application.js loaded');
