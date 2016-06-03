@@ -10,10 +10,10 @@
   <div class="columns">
     <h3><i class="fi-star"></i> Ratings: </h3>
     <div class = "callout">
-      Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
+      Company?<%= rating_for @match, "company",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
+      Fun Factor?<%= rating_for @match, "fun_factor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+      Competitiveness?<%= rating_for @match, "competitiveness",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+      Play Again?<%= rating_for @match, "play_again",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
     </div>
     <h3><i class="fi-torsos-all"></i> Users attending: </h3>
     <div class="callout">
@@ -27,7 +27,14 @@
     </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="large-6 medium-5 small-12 columns">
+    <% if current_user == @match.users.first %>
+      <%= link_to "Edit Match", edit_match_path(@match), class:"button secondary small" %>
+      <%= link_to "Delete Match", match_path(@match), method: :delete, class:"button warning small"%>
+    <% end %>
+  </div>
+</div>
 <% if @match.comments.length > 0 %>
   <div class="row pad-down">
     <div class="large-7 large-centered columns">
@@ -55,13 +62,4 @@
       <span aria-hidden="true">&times;</span></button>
     </div><br>
   <% end %>
-</div>
-
-<div class="row">
-  <div class="large-6 medium-5 small-12 columns">
-    <% if current_user == @match.users.first %>
-      <%= link_to "Edit Match", edit_match_path(@match), class:"button secondary small" %><br>
-      <%= link_to "Delete Match", match_path(@match), method: :delete, class:"button warning small"%>
-    <% end %>
-  </div>
 </div>

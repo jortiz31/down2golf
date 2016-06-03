@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Down 2 Golf</title>
   <%= stylesheet_link_tag    "application" %>
   <%= include_gon %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery" %>
-  <%= javascript_include_tag "jquery.raty" %>
   <%= javascript_include_tag "chosen-jquery" %>
   <%= javascript_include_tag "jquery.reveal" %>
   <%= javascript_include_tag "foundation.min" %>
+  <%= javascript_include_tag "jquery.raty" %>
+  <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
   <%= javascript_include_tag "bodyscript" %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
-  <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
@@ -63,29 +64,28 @@
   <%= render partial: "layouts/notifications" %>
   </header>
 
-
+    <div class="row">
+      <div class="large-6 medium-6 columns large-centered medium-centered">
+        <% if notice %>
+          <div class="success callout" data-closable="slide-out-right">
+            <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="alert callout" data-closable="slide-out-right">
+            <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span class="xbtn" aria-hidden="true">&times;</span></button>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
 <%= yield %>
 
 
-  <div class="row pad-down">
-    <div class="large-6 medium-6 columns large-centered medium-centered">
-      <% if notice %>
-        <div class="success callout" data-closable="slide-out-right">
-          <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">&times;</span></button>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert callout" data-closable="slide-out-right">
-          <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span class="xbtn" aria-hidden="true">&times;</span></button>
-        </div>
-      <% end %>
-    </div>
-  </div>
 
 
 </body>

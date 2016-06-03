@@ -20,10 +20,12 @@ class MatchcommentsController < ApplicationController
     redirect_to @match
   end
   def edit
+    @match = Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     render 'comments/edit'
   end
   def update
+    @match = Match.find(params[:match_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     flash[:notice]="Comment successfully updated!"

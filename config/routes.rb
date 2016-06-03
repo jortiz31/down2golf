@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   root 'site#index'
+  get '/about' , to:'site#about', as:"about"
   devise_for :users, controllers: {
     sessions: 'users/sessions', registrations: 'registrations'
   }
@@ -29,9 +30,6 @@ Rails.application.routes.draw do
     end
   end
   resources :courses do
-    resources :matches do
-      resources :comments
-    end
     resources :comments, controller: 'coursecomments'
   end
   resources :users do

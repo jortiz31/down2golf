@@ -28,6 +28,7 @@ class MatchesController < ApplicationController
     if current_user.premium
       @match = Match.new(match_params)
       current_user.matches << @match
+      flash[:notice]="Match Successfully Created!"
       redirect_to @match
     elsif @match_count >= 5
       flash[:notice]="Sign up for premium in order to create more than 5 matches!"
@@ -35,6 +36,7 @@ class MatchesController < ApplicationController
     elsif @match_count < 5
       @match=Match.new(match_params)
       current_user.matches << @match
+      flash[:notice]="Match Successfully Created!"
       redirect_to @match
     end
   end
@@ -46,7 +48,8 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
-      render :show, status: :ok, location: @match
+      flash[:notice]="Match Successfully Updated!"
+      redirect_to @match
     else
       render json: @match.errors, status: :unprocessable_entity
     end
@@ -67,6 +70,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
+    flash[:notice]="Match Successfully Deleted!"
     redirect_to matches_path
   end
 

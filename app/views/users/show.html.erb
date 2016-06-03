@@ -30,7 +30,7 @@
         <% @user.matches.each do |m| %>
         <tr>
           <td>
-            <%= link_to m.title , m%>
+            <%= link_to m.title , m %>
           </td>
           <td>
             <%= m.date.strftime("%m/%d/%Y") %>
@@ -49,12 +49,16 @@
 </div>
 <% end %>
 
-<div class="row pad-down">
-  <div class="large-9 medium-5 small-9 small-centered large-centered medium-centered columns">
-    <div class="callout">
-      Humor? <%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Skill Level?<%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-      Sociability?<%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    </div>
+
+
+<div class="row pad-down rating-div">
+  <div class="large-4 small-4 columns text-left">
+<h4>Humor?</h4> <%= rating_for @user, "Humor",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true, star_path: '/images/ratyrate'%>
+  </div>
+  <div class="large-4 small-4 columns text-left">
+<h4>Skill Level?</h4> <%= rating_for @user, "Skill_level",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,  star_path: '/images/ratyrate' %>
+  </div>
+  <div class="large-4 small-4 columns text-left">
+    <h4>Sociability?</h4><%= rating_for @user, "Sociability",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true, star_path: '/images/ratyrate' %>
   </div>
 </div>

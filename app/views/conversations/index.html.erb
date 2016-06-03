@@ -1,6 +1,13 @@
-
 <div class="row">
-  <div class="column medium-6 large-6 small-12 small-centered large-centered medium-centered">
+  <div class="large-9 large-centered small-10 small-centered text-center columns">
+      <img src="http://the1perspective.com/jonatron/DOWN2GOLF.png" class="logosm" alt="Down2Golf" />
+  </div>
+
+</div>
+
+
+<div class="row pad-down">
+  <div class="column medium-8 large-9 small-12 small-centered large-centered medium-centered">
     <ul class="pricing-table no-bullet text-center">
       <li class="title">Conversations</li>
       <%= mailbox_section 'inbox', @box %>
@@ -14,7 +21,7 @@
 
 <div class="row">
 
-<div class="column medium-9 large-11 small-12 large-centered medium-centered">
+<div class="column medium-8 large-9 small-12 large-centered medium-centered">
   <%= render partial: 'conversations/conversation', collection: @conversations %>
   <% if @box == 'trash' %>
   <%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>

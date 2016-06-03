@@ -19,6 +19,8 @@ Bundler.require(*Rails.groups)
 
 module Down2GolfApp
   class Application < Rails::Application
+    config.serve_static_files = true
+    config.assets.initialize_on_precompile = true
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
     config.active_record.raise_in_transactional_callbacks = true
     config.generators do |g|

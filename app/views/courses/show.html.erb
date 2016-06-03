@@ -15,73 +15,104 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="large-12 columns">
-    <h3><%= number_to_currency(@course.price) %>
-    <a href="<%= @course.url %>">   <%= @course.url %>  </a></h3>
-  </div>
-</div>
 
-<div class="row">
-  <div class="large-3 columns">
+<div class="row align-middle pad-down">
+  <div class="columns">
+    <h3 class="text-center"><i class="fi-cloud"></i> Weather Conditions</h3>
     <div id="weather"></div>
   </div>
-  <div class="large-3 columns">
-    Clubhouse: <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Conditions: </h5><%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Scenery: <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-    Worth: <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true %>
-  </div>
-  <div class="large-6 columns">
-    <h2>Matches:</h2> <br>
+  <div class="columns">
+    <h2>Matches:</h2>
     <% @course.matches.each do |match| %>
-      <%= link_to match.title, match %><br>
-      Time and Date:<strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%H:%M") %></strong><br>
-      <%= match.course.name %><br>
+    <%= link_to match.title, match %><br>
+    Time and Date:<strong><%= match.date.strftime("%m/%d/%Y")%>   <%= match.time.strftime("%H:%M") %></strong><br>
+    <%= match.course.name %><br>
     <% end %><br>
     <strong><button class="button primary" data-open="exampleModal">New Match at this Course</button></strong>
     <div class="reveal" id="exampleModal" data-reveal>
       <%= render 'matches/form' %>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span></button>
-    </div><br>
+      </div><br>
+    </div>
   </div>
-</div>
-<% if @course.comments.length > 0 %>
-  <div class="row pad-down">
-    <div class="large-7 large-centered columns">
-      <h3><i class="fi-comments"></i>  Comments:</h3>
-      <div class="callout">
-        <% @comments = @course.comments.order(created_at: :desc) %>
-        <% @comments.each do |c| %>
+
+
+
+
+    <div class="row">
+      <div class="large-12 medium-12 small-12 large-centered medium-centered columns">
+        <% if @course.comments.length > 0 %>
+        <h3><i class="fi-comments"></i>  Comments:</h3>
+        <div class="callout">
+          <% @comments = @course.comments.order(created_at: :desc) %>
+          <% @comments.each do |c| %>
           <div class="row">
             <div class="small-8 columns">
               <h5><%= c.body %></h5>
               <h5>Written By: <small><%=link_to c.user.email.capitalize, c.user %></small></h5>
             </div>
           </div>
+          <% if current_user %>
           <% if current_user.id == c.user_id %>
-            <%= link_to "Delete Comment", match_comment_path(@course,c), method: :delete, class:"button small warning" %>
-            <%= link_to "Edit Comment", edit_match_comment_path(@course,c), class:"button secondary small" %>
+          <%= link_to "Delete Comment", course_comment_path(@course,c), method: :delete, class:"button small warning" %>
+          <%= link_to "Edit Comment", edit_course_comment_path(@course,c), class:"button secondary small" %>
           <% end %>
-        <% end %>
-      <% end %>
-    <% if current_user %>
-  <strong><button class="button success" data-open="commentModal">Comment on Course</button></strong>
-    <div class="reveal" id="commentModal" data-reveal>
-      <%= render 'comments/form' %>
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span></button>
-    </div><br>
-  <% end %>
-</div>
+          <% end %>
+          <% end %>
+          <% end %>
+          <% if current_user %>
+          <strong><button class="button success" data-open="commentModal">Comment on Course</button></strong>
+          <div class="reveal" id="commentModal" data-reveal>
+            <%= render 'comments/form' %>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span></button>
+            </div><br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="large-12 medium-10 small-12 large-centered medium-centered columns">
+          <h2 class="text-center">Course Information and Ratings</h2>
+          <hr>
+        </div>
+      </div>
+      <div class="row pad-down">
+        <div class="large-6 columns">
+          <h5 class="text-left"><i class="fi-dollar-bill"> Price<%= number_to_currency(@course.price) %></i> <br></h5>
+        </div>
+        <div class="large-6 columns">
+          <h5 class="text-left"><i class="fi-web"> Website<a href="<%= @course.url %>">   <%= @course.url %>  </a></i></h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-3 small-6 columns">
+          <i class="fi-home"></i> Clubhouse <%= rating_for @course, "clubhouse",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+        </div>
+        <div class="large-3 small-6 columns">
+          <i class="fi-cloud"></i> Conditions <%= rating_for @course, "conditions",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true ,star_path: '/images/ratyrate'%>
+        </div>
+        <div class="large-3 columns">
+          <i class="fi-mountains"></i> Scenery <%= rating_for @course, "scenery",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
+        </div>
+        <div class="large-3 columns">
+          <i class="fi-dollar"></i> Worth <%= rating_for @course, "worth",disabled_after_rate:true, enable_half:true, readonly:true, imdb_avg: true,star_path: '/images/ratyrate' %>
+        </div>
+        <br>
+      </div>
+
+
 
 <script>
   var address = $('#address').text();
   console.log(address)
   $.ajax({
     method: "GET",
-    url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=245542a7232d4bac319f7f18675485d0",
+    url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=59ff86fd6f633dfdaf0b8aef03cedc7b",
     success: getCourseSuccess
   })
   function getCourseSuccess(course){
@@ -96,7 +127,7 @@
     var deg = course.wind.deg;
     var speed = course.wind.speed;
     console.log(humidity, pressure, temp_avg ,temp_min, temp_max, weather, main ,deg ,speed);
-    $('#weather').html("<ul><li>Humidity: "+humidity+"</li>"+"<li>Pressure: "+pressure+"</li><li>Average Temp: "+temp_avg+"</li><li>Max Temp: "+
+    $('#weather').html("<ul class='weather text-center'><li>Humidity: "+humidity+"</li>"+"<li>Pressure: "+pressure+"</li><li>Average Temp: "+temp_avg+"</li><li>Max Temp: "+
   temp_max+"</li><li>Min Temp: "+temp_min+"</li><li>Weather Description: "+weather+"</li><li>Wind Speed: "+speed+"</li><li>Wind Degree: "+deg+"</li></ul>")
   }
 
