@@ -5,7 +5,6 @@
         <div class="icon">
           <img src=<%= asset_path("#{@result[:icon]}.svg") %> alt="">
         </div>
-
         <h1><%= @result[:header] %></h1>
         <section>
           <p><%= @result[:message] %></p>
@@ -13,10 +12,8 @@
       <% else %>
         <section>
           <p>Test another transaction or see the Braintree API response.</p>
-      </section>
-
+        </section>
       <% end %>
-
       <section>
         <a class="button primary back" href="/checkouts/new">
           <span>Test Another Transaction</span>
