@@ -15,6 +15,7 @@
   <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
   <%= javascript_include_tag "bodyscript" %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'http://the1perspective.com/jonatron/favicon.ico' %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
   <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 </head>
@@ -64,7 +65,7 @@
   <%= render partial: "layouts/notifications" %>
   </header>
 
-    <div class="row">
+    <div class="row pad-down">
       <div class="large-6 medium-6 columns large-centered medium-centered">
         <% if notice %>
           <div class="success callout" data-closable="slide-out-right">
