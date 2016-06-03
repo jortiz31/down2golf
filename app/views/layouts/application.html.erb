@@ -30,7 +30,7 @@
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
         <% if user_signed_in? %>
-          <li class="menu-text"><i class="fi-skull"> <%=link_to current_user.email, current_user  %> </i></li>
+          <li class="menu-text"><i class="fi-skull"> <%=link_to current_user.email, current_user  %></i></li>
         <% else %>
 
         <li class="menu-text"><i class="fi-skull"> <%= link_to 'Down2Golf', root_path %></i></li>
@@ -41,7 +41,7 @@
       <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
         <% if current_user %>
           <% if !current_user.premium %>
-            <li> <%=link_to "Premium", new_checkout_path %></li>
+            <li> <%=link_to "Pro", new_checkout_path %></li>
           <% end %>
         <% end %>
         <% if user_signed_in? %>
@@ -50,6 +50,7 @@
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'Messages', conversations_path %></li>
           <li><%= link_to 'Log Out', logout_path%></li>
+          <li><%= link_to '', root_path, class: 'fi-home' %></li>
         <% else %>
           <li> <%= link_to "Sign up", signup_path %> </li>
           <li><%= link_to 'Log In', new_user_session_path %></li>
@@ -58,6 +59,7 @@
     </ul>
   </div>
 </div>
+
   <%= render partial: "layouts/notifications" %>
   </header>
 
