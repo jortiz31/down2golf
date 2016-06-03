@@ -1,5 +1,5 @@
 # ARE YOU DOWN TO GOLF?
-![logo](markdown/down2golf.png "Logo Title Text 1")
+![logo](markdown/DOWN2GOLF.png "Logo")
 ___
 
 + ## TECHNOLOGIES USED
