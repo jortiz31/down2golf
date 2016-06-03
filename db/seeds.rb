@@ -25,8 +25,21 @@ baker = Course.create({name:"David Baker", location:"Fountain Valley, CA", price
 
 presidio = Course.create({name:"Park Presidio", location:"San Francisco, CA", price: 200, url:"http://www.presidiogolf.com/", image:"http://www.presidiogolf.com/wp-content/themes/cloudstrap/images/home_hdr.jpg" })
 
+sharp = Course.create({name:"Sharp Park", location: "Pacifica, CA", price: 60, image:"http://sfrecpark.org/wp-content/uploads/3-Sharp-Cover-Image-586x286.jpg", url:"http://sfrecpark.org/destination/sharp-park/sharp-park-golf-course/"})
 
+cinnabar= Course.create({name:"Cinnabar Hills", location:"Gilroy, CA", price: 120, image:"http://www.cinnabarhills.com/template/homephoto5.jpg", url:"http://www.cinnabarhills.com"})
 
+chabot = Course.create({name:"Lake Chabot", location:"Alameda, CA", price: 90, image:"http://www.golfcalifornia.com/courses/image/preview/17299.jpg", url:"http://lakechabotgolf.com/"})
+
+halfmoon = Course.create({name:"Half Moon Bay Golf Links", location:"Half Moon Bay, CA", price: 80, url:"http://www.halfmoonbaygolf.com/", image:"http://www.halfmoonbaygolf.com/images/Internal/golf.jpg"})
+
+bodega = Course.create({name:"The Links at Bodega Harbour", location:"Bodega Bay, CA", url:"http://www.bodegaharbourgolf.com/", price:175, image:"http://theaposition.com/rkaufmangolf/wp-content/uploads/sites/70/2013/01/Links-at-Bodega-Harbour2_Robert-Kaufman-1024x580.jpg"})
+
+p bodega
+p halfmoon
+p chabot
+p cinnabar
+p sharp
 p presidio
 p pebble
 p spyglass
