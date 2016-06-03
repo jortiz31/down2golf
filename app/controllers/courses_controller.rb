@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
     @courses = Course.all.paginate(:page => params[:page], :per_page => 4)
   end
@@ -24,6 +25,9 @@ class CoursesController < ApplicationController
   end
 
   private
+  def set_course
+    @course= Course.find(params[:id])
+  end
   def course_params
     params.require(:course).permit(:name, :location, :image, :url, :price)
   end

@@ -42,16 +42,26 @@ class MatchesController < ApplicationController
   end
 
   def edit
-    @courses=Course.all
-    render :edit
+    if @match.users.first == current_user
+      @courses=Course.all
+      render :edit
+    else
+      flash[:notice]="You aren't authorized to edit this match!"
+      redirect_to matches_path
+    end
   end
 
   def update
-    if @match.update(match_params)
-      flash[:notice]="Match Successfully Updated!"
-      redirect_to @match
+    if @match.users.first == current_user
+      if @match.update(match_params)
+        flash[:notice]="Match Successfully Updated!"
+        redirect_to @match
+      else
+        render json: @match.errors, status: :unprocessable_entity
+      end
     else
-      render json: @match.errors, status: :unprocessable_entity
+      flash[:notice]="You aren't the creator of this match"
+      redirect_to matches_path
     end
   end
 
@@ -69,9 +79,14 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-    @match.destroy
-    flash[:notice]="Match Successfully Deleted!"
-    redirect_to matches_path
+    if @match.users.first == current_user
+      @match.destroy
+      flash[:notice]="Match Successfully Deleted!"
+      redirect_to matches_path
+    else
+      flash[:notice]="You aren't authorized to delete matches!"
+      redirect_to matches_path
+    end
   end
 
   private
