@@ -5,32 +5,36 @@
     <thead>
       <tr>
         <th width="80">Chatting With</th>
-        <th width="50">Subject</th>
-        <th width="0"></th>
+        <th width="90">Subject</th>
+
+        <th></th>
         <th width="50">From</th>
         <th width="50">At</th>
-        <th width="100">Body</th>
-        <th></th>
-        <th>Message</th>
-        <th width="50">Send</th>
+        <th>Body</th>
       </tr>
     </thead>
     <tbody>
+      <% @conversation.receipts_for(current_user).each do |receipt| %>
       <tr>
-        <% @conversation.receipts_for(current_user).each do |receipt| %>
         <td><%= render 'conversations/participants', conversation: @conversation %></td>
         <td><%= @conversation.subject %></td>
         <td><% message = receipt.message %></td>
         <td><%= message.sender.email %></td>
         <td><%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></td>
         <td><%= message.body %></td>
-        <% end %>
-        <td><%= form_tag reply_conversation_path(@conversation), method: :post do %></td>
-        <td><%= text_area_tag 'body', nil, cols: 6, placeholder: 'Type something...', required: true %></td>
-        <td><%= submit_tag "Send Message", class: 'button' %></td>
-        <% end %>
+
       </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
+</div>
+
+<div class="row">
+  <div class="large-9 medium-10 small-11 columns large-centered medium-centered">
+    <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+    <%= text_area_tag 'body', nil, cols: 6, placeholder: 'Type something...', required: true %>
+    <%= submit_tag "Send Message", class: 'button large expanded hollow' %>
+    <% end %>
+  </div>
 </div>
