@@ -10,30 +10,28 @@ Course.destroy_all
 Match.destroy_all
 
 
-pebble = Course.create({name:"Pebble Beach", location:"Monterey, CA", price:400, url:"http://www.pebblebeach.com", image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+pebble = Course.create({name:"Pebble Beach", location:"Monterey, CA", price:400, url:"http://www.pebblebeach.com", image:"http://www.pebblebeach.com/templates/pebble-homepage/createjs/images/hole1.jpg"})
 
-spyglass = Course.create({name:"Spyglass", location:"Monterey, CA", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+spyglass = Course.create({name:"Spyglass", location:"Monterey, CA", price:300, url:"http://www.pebblebeach.com/golf/spyglass-hill-golf-course", image:"http://www.golftripper.com/wp-content/uploads/2013/08/Spyglass-Hill-Golf-Course-Hole-4-3.jpg"})
 
 augusta = Course.create({name:"Augusta", location:"Augusta, GA", price:450, url:"http://www.augusta.com",
-image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+image:"http://gotravelaz.com/wp-content/uploads/images/Augusta_1807.jpg"})
 
-chuck = Course.create({name:"Chuck Corica", location:"Alameda, GA", price:150, url:"http://www.chucks.com", image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+chuck = Course.create({name:"Chuck Corica", location:"Alameda, GA", price:150, url:"http://www.chucks.com", image:"http://www.alamedagolf.com/images/IMG_0890.jpg"})
 
-coyote = Course.create({name:"Coyote Creek", location:"Morgan Hill, CA", price:350, url:"http://www.coyote.com", image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+coyote = Course.create({name:"Coyote Creek", location:"Morgan Hill, CA", price:350, url:"http://www.coyote.com", image:"http://www.thecrowleycollection.com/photos/CA/coyotecreek/coyotecr004.jpg"})
 
-baker = Course.create({name:"David Baker", location:"Fountain Valley, CA", price:350, url:"http://www.davidbaker.com", image:"https://static1.squarespace.com/static/54eea209e4b01b969d2fc647/t/5519ff9ae4b06b4b5195b818/1427767195966/ormeau_golf_club_fairway.jpg?format=1000w"})
+baker = Course.create({name:"David Baker", location:"Fountain Valley, CA", price:350, url:"http://www.davidbaker.com", image:"http://visitanaheim.org/sites/default/files/styles/large/public/blog_post/159270/images/davidbaker12.jpg?itok=8njtUB4d"})
+
+presidio = Course.create({name:"Park Presidio", location:"San Francisco, CA", price: 200, url:"http://www.presidiogolf.com/", image:"http://www.presidiogolf.com/wp-content/themes/cloudstrap/images/home_hdr.jpg" })
 
 
 
-a = Match.create({title:"Eric's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
-b = Match.create({title:"Jonathan's round of Golf", timeanddate:DateTime.new(2016,2,3,4,5,6,'+7')})
-c = Match.create({title:"Kirby's round of Golf", timeanddate:DateTime.new(2017,2,3,4,5,6,'+7')})
-
-pebble.matches << a
-spyglass.matches << b
-augusta.matches << c
-chuck.matches << a
-coyote.matches << b
-baker.matches << c
-
+p presidio
+p pebble
+p spyglass
+p augusta
+p chuck
+p baker
+p coyote
 p "seed completed"
