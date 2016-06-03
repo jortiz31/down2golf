@@ -62,29 +62,28 @@
   <%= render partial: "layouts/notifications" %>
   </header>
 
-
+    <div class="row">
+      <div class="large-6 medium-6 columns large-centered medium-centered">
+        <% if notice %>
+          <div class="success callout" data-closable="slide-out-right">
+            <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span></button>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="alert callout" data-closable="slide-out-right">
+            <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
+            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+              <span class="xbtn" aria-hidden="true">&times;</span></button>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
 <%= yield %>
 
 
-  <div class="row pad-down">
-    <div class="large-6 medium-6 columns large-centered medium-centered">
-      <% if notice %>
-        <div class="success callout" data-closable="slide-out-right">
-          <p class="notice text-center"><i class="fi-check"></i> <%= notice %></p>
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-          <span aria-hidden="true">&times;</span></button>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert callout" data-closable="slide-out-right">
-          <p class="alert text-center"><i class="fi-alert"></i> <%= alert %></p>
-          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-            <span class="xbtn" aria-hidden="true">&times;</span></button>
-        </div>
-      <% end %>
-    </div>
-  </div>
 
 
 </body>
