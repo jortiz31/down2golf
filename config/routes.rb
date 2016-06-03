@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   root 'site#index'
+  get '/about' , to:'site#about', as:"about"
   devise_for :users, controllers: {
     sessions: 'users/sessions', registrations: 'registrations'
   }
