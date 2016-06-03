@@ -20,6 +20,7 @@ class CoursecommentsController < ApplicationController
     redirect_to @course
   end
   def edit
+    @course = Course.find(params[:course_id])
     @comment = Comment.find(params[:id])
     render "comments/edit"
   end
