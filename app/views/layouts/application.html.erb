@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
       <div class="title-bar-title"><%=link_to current_user.email, current_user  %> </div>
     <% else %>
-      <div class="title-bar-title">Menu</div>
+    <div class="title-bar-title"><%= link_to 'Down2Golf', root_path %></div>
     <% end %>
   </div>
   <div class="top-bar" id="main-menu">
@@ -33,7 +33,8 @@
         <% if user_signed_in? %>
           <li class="menu-text"><i class="fi-skull"> <%=link_to current_user.email, current_user  %> </i></li>
         <% else %>
-          <li class="menu-text"><i class="fi-skull">  Down 2 Golf? </i></li>
+
+        <li class="menu-text"><i class="fi-skull"> <%= link_to 'Down2Golf', root_path %></i></li>
         <% end %>
       </ul>
     </div>
@@ -45,7 +46,7 @@
           <% end %>
         <% end %>
         <% if user_signed_in? %>
-          <li> <%= link_to "Courses", root_path %> </li>
+          <li> <%= link_to "Courses", courses_path %> </li>
           <li> <%= link_to "Matches", matches_path %> </li>
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'Messages', conversations_path %></li>
@@ -60,6 +61,12 @@
 </div>
   <%= render partial: "layouts/notifications" %>
   </header>
+
+
+
+<%= yield %>
+
+
   <div class="row pad-down">
     <div class="large-6 medium-6 columns large-centered medium-centered">
       <% if notice %>
@@ -79,7 +86,6 @@
     </div>
   </div>
 
-<%= yield %>
 
 </body>
 </html>

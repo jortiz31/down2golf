@@ -2,7 +2,80 @@ $menu-background: #2ecc71;
 
 @import url(https://fonts.googleapis.com/css?family=Marvel:400,700);
 
+// GLOBAL BODY RULES
 body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
+
+body {
+
+}
+
+// PARALAX CSS
+.parallax-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.61)), url("http://static1.squarespace.com/static/54df6947e4b043f1c995bdad/t/55661966e4b01b61ed9b3879/1450633687777/Pebble+Beach+Golf+Links+Hole+18.jpg?format=1500w");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+}
+
+.parallax-background {
+  i {
+    font-size: 2em;
+    color: #fff;
+    transition: all .2s ease-in-out;
+    margin-bottom: 10px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.intro-text {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  margin-top: 10%;
+}
+
+@media only screen and (max-width: 800px) {
+    .intro-text {
+        margin-top: 20%;
+        font-weight: bold;
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .intro-text h1 {
+    font-size: 2em;
+  }
+    .intro-text {
+        margin-top: 40%;
+        font-weight: bold;
+        font-size: 2em;
+    }
+}
+
+.parallax-content {
+  max-width: 100%;
+  position: relative;
+  top: 500px;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #fff;
+}
+
+
+// GLOBAL BUTTON RULE
+.button {
+  border-radius: 5px;
+}
 
 // $grid-column-gutter: 30px;
 
@@ -241,5 +314,33 @@ body, h1,h2,h3,h4,h5 {font-family: 'Marvel';}
 .callout.success {
   i {
     color: #27ae60;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .price-row {
+    margin-right: 18px;
+  }
+}
+
+
+
+.active-tb {
+  position: relative;
+  box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
+  transform: scale(1);
+  border:0;
+  transition: 0.4s ease;
+  z-index:13;
+  &:hover {
+    position: relative;
+    box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5);
+    transform: scale(1.25);
+    border:0;
+    z-index:15;
+  }
+  li {
+    list-style: none;
   }
 }

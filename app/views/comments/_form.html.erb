@@ -1,11 +1,15 @@
-<% if @course %>
-  <%= simple_form_for [@course,@comment] do |f| %>
+<div class="row pad-down">
+  <div class="large-6 medium-5 small-10 large-centered medium-centered small-centered columns">
+    <% if @course %>
+    <%= simple_form_for [@course,@comment] do |f| %>
     <%= f.text_area :body, placeholder: "comment body" %>
-    <%= f.submit "Comment on Course!", class: "button warning" %>
-  <% end %>
-<% elsif @match %>
-  <%= simple_form_for [@match,@comment] do |f| %>
+    <%= f.submit "Submit", class: "button large expanded success" %>
+    <% end %>
+    <% elsif @match %>
+    <%= simple_form_for [@match,@comment] do |f| %>
     <%= f.text_area :body, placeholder: "comment body"  %>
-    <%= f.submit "Comment on Match!" , class:"button warning"%>
-  <% end %>
-<% end %>
+    <%= f.submit "Submit" , class:"button large expanded primary"%>
+    <% end %>
+    <% end %>
+  </div>
+</div>
