@@ -83,7 +83,7 @@
   console.log(address)
   $.ajax({
     method: "GET",
-    url: "https://pro.openweathermap.org/data/2.5/weather?q="+address+"&appid=59ff86fd6f633dfdaf0b8aef03cedc7b",
+    url: "http://api.openweathermap.org/data/2.5/weather?q="+address+"&appid=59ff86fd6f633dfdaf0b8aef03cedc7b",
     success: getCourseSuccess
   })
   function getCourseSuccess(course){
