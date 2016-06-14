@@ -22,6 +22,7 @@ gem 'braintree'
 gem 'gon', '~> 5.1.2'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'figaro', '~> 0.7.0'
+gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
