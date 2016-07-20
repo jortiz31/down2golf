@@ -27,13 +27,15 @@
     <h3>Name of Match: <small> <%= link_to match.title, match %></small></h3>
     <h3>Time and Date: <small> <%= match.date.strftime("%m/%d/%Y")%> @ <%= match.time.strftime("%H:%M") %></small></h3>
     <% end %><br>
-    <strong><button class="button primary" data-open="exampleModal">New Match at this Course</button></strong>
-    <div class="reveal" id="exampleModal" data-reveal>
-      <%= render 'matches/form' %>
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span></button>
-      </div><br>
-    </div>
+    <% if current_user %>
+      <strong><button class="button primary" data-open="exampleModal">New Match at this Course</button></strong>
+      <div class="reveal" id="exampleModal" data-reveal>
+        <%= render 'matches/form' %>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span></button>
+        </div><br>
+      </div>
+    <% end %>
   </div>
 
 
